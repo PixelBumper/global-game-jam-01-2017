@@ -10,8 +10,8 @@ Unity 5.5.0f3
 2. Ensure that there is at most one person working on each game scene
 
     -> if you need one of the scenes to adjust your prefabs, create a copy of it and append your name
-    
-    -> changes are then saved back by applying them to the prefabs
+
+    -> save your changes by applying them to the prefabs
 
 ## Recomendations
 use Project Rider :)

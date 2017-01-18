@@ -7,11 +7,13 @@ Unity 5.5.0f3
 
 ## Avoiding merge issues in meta files
 1. Always create a prefab for each gameobject in the scene
-2. Ensure that there is at most one person working on each game scene
+2. Ensure that there is at most one person working on a prefab
+3. Ensure that there is at most one person working on each game scene
 
     -> if you need one of the scenes to adjust your prefabs, create a copy of it and append your name
 
     -> save your changes by applying them to the prefabs
+    
 
 ## Recomendations
 use Project Rider :)

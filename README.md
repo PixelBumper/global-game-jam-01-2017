@@ -10,9 +10,9 @@ Unity 5.5.0f3
 2. Ensure that there is at most one person working on a prefab
 3. Ensure that there is at most one person working on each game scene
 
-    -> if you need one of the scenes to adjust your prefabs, create a copy of it and append your name
+    -> if you need one of the scenes to adjust a prefab, create a copy of that scene
 
-    -> save your changes by applying them to the prefabs
+    -> save prefabs changes by clicking the apply button
     
 
 ## Recomendations

@@ -3,5 +3,5 @@ public enum GameInventory
 {
     None,
     Screwdriver,
-    Tape,
+    Scissors,
 }

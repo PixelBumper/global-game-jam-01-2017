@@ -15,10 +15,6 @@ public class DummyPuzzleModule : PuzzleModule {
         // do nothing
     }
 
-    public override void OnBecomeInteractable()
-    {
-    }
-
     public override GameProgress OwnGameProgressName
     {
         get { return GameProgress.LightUpColorMixPanel; }

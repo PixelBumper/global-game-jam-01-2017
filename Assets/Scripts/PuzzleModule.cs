@@ -21,11 +21,6 @@ public abstract class PuzzleModule : MonoBehaviour
     /// <param name="progress">the game progress</param>
     public abstract void OnPlayerProgress(GameProgress progress);
 
-    /// <summary>
-    /// Called when the module becomes interactable
-    /// </summary>
-    public abstract void OnBecomeInteractable();
-
     public abstract GameProgress OwnGameProgressName { get; }
 
     /// <summary>

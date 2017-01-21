@@ -24,10 +24,6 @@ public class PuzzleLogic : PuzzleModule {
 		// do nothing
 	}
 
-	public override void OnBecomeInteractable()
-	{
-	}
-
     public override GameProgress OwnGameProgressName
     {
         get { return GameProgress.LightUpColorMixPanel; }

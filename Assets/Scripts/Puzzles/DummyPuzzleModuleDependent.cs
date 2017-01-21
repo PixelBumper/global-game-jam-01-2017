@@ -19,10 +19,6 @@ public class DummyPuzzleModuleDependent : PuzzleModule {
         }
     }
 
-    public override void OnBecomeInteractable()
-    {
-    }
-
     public override GameProgress OwnGameProgressName
     {
         get { return GameProgress.ResolvedSimpleWiresPuzzle; }

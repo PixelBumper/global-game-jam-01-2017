@@ -21,11 +21,6 @@ public class PasswordPuzzle : PuzzleModule
         }
     }
 
-    public override void OnBecomeInteractable()
-    {
-        throw new System.NotImplementedException();
-    }
-
     public override GameProgress OwnGameProgressName
     {
         get { return GameProgress.ResolvedSimpleWiresPuzzle; } // TODO: still needs something

@@ -8,7 +8,7 @@ public class TileHandler : MonoBehaviour {
 
 	private void OnMouseUpAsButton()
 	{
-		Debug.Log("TileHandler OnMouseUpAsButton");
-		logic.OnTileClicked(gameObject);
+		Debug.Log ("TileHandler OnMouseUpAsButton");
+		logic.OnTileClicked (gameObject);
 	}
 }

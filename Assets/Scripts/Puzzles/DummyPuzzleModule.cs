@@ -15,8 +15,9 @@ public class DummyPuzzleModule : PuzzleModule {
         // do nothing
     }
 
-    public override void OnBecomeInteractable()
+    public override GameProgress OwnGameProgressName
     {
+        get { return GameProgress.LightUpColorMixPanel; }
     }
 
     private void Awake()
@@ -46,7 +47,6 @@ public class DummyPuzzleModule : PuzzleModule {
     private void OnMouseUpAsButton()
     {
         _delta = 0.0f;
-        GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.LightUpColorMixPanel);
         MarkAsSolved();
     }
 }

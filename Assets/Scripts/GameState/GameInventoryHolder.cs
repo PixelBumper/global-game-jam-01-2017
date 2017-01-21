@@ -30,6 +30,7 @@ public class GameInventoryHolder : MonoBehaviour
         if (!IsThereMoreThanOneItemActive())
         {
             inventory[itemsThatWeCanHold.IndexOf(GameInventory.None)].SetActive(false);
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         }
     }
 

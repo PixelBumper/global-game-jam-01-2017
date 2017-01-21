@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float StartingTimeInSeconds;
+    public float StartingTimeInSeconds = 30f;
 
     public GameObject m1GameObject;
     public GameObject m2GameObject;

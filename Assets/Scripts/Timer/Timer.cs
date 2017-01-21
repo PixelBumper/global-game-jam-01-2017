@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Timer : MonoBehaviour
@@ -10,16 +10,7 @@ public class Timer : MonoBehaviour
     public GameObject s1GameObject;
     public GameObject s2GameObject;
 
-    public Sprite sprite0;
-    public Sprite sprite1;
-    public Sprite sprite2;
-    public Sprite sprite3;
-    public Sprite sprite4;
-    public Sprite sprite5;
-    public Sprite sprite6;
-    public Sprite sprite7;
-    public Sprite sprite8;
-    public Sprite sprite9;
+    public List<Sprite> sprites;
 
     private float CurrentTimeInSeconds;
 
@@ -50,39 +41,10 @@ public class Timer : MonoBehaviour
         int minutes = (int) ((CurrentTimeInSeconds % 3600) / 60);
         int seconds = (int) (CurrentTimeInSeconds % 60);
 
-        m1GameObject.GetComponent<SpriteRenderer>().sprite = GetSpriteForNumber(minutes / 10);
-        m2GameObject.GetComponent<SpriteRenderer>().sprite = GetSpriteForNumber(minutes % 10);
+        m1GameObject.GetComponent<SpriteRenderer>().sprite = sprites[minutes / 10];
+        m2GameObject.GetComponent<SpriteRenderer>().sprite = sprites[minutes % 10];
 
-        s1GameObject.GetComponent<SpriteRenderer>().sprite = GetSpriteForNumber(seconds / 10);
-        s2GameObject.GetComponent<SpriteRenderer>().sprite = GetSpriteForNumber(seconds % 10);
-    }
-
-    private Sprite GetSpriteForNumber(int number)
-    {
-        switch (number)
-        {
-            case 0:
-                return sprite0;
-            case 1:
-                return sprite1;
-            case 2:
-                return sprite2;
-            case 3:
-                return sprite3;
-            case 4:
-                return sprite4;
-            case 5:
-                return sprite5;
-            case 6:
-                return sprite6;
-            case 7:
-                return sprite7;
-            case 8:
-                return sprite8;
-            case 9:
-                return sprite9;
-            default:
-                throw new Exception("Should never happen");
-        }
+        s1GameObject.GetComponent<SpriteRenderer>().sprite = sprites[seconds / 10];
+        s2GameObject.GetComponent<SpriteRenderer>().sprite = sprites[seconds % 10];
     }
 }

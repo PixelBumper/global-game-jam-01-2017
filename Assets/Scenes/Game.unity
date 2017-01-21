@@ -717,7 +717,10 @@ MonoBehaviour:
   InventoryHolder: {fileID: 1439843758}
   HamsterController: {fileID: 175906362}
   MicrowaveFront: {fileID: 1638816919}
-  MicrowaveBack: {fileID: 739809519}
+  ObjectsToDisable:
+  - {fileID: 739809519}
+  - {fileID: 427490703}
+  - {fileID: 1439843754}
 --- !u!4 &445608222
 Transform:
   m_ObjectHideFlags: 0

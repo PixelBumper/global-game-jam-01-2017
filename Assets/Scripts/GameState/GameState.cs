@@ -12,7 +12,7 @@ public class GameState : MonoBehaviour
     public GameInventoryHolder InventoryHolder;
     public HamsterController HamsterController;
     public GameObject MicrowaveFront;
-    public GameObject MicrowaveBack;
+    public List<GameObject> ObjectsToDisable;
 
     private float CurrentTimeInSeconds;
 
@@ -82,7 +82,10 @@ public class GameState : MonoBehaviour
         PlayerProgress.Add(progress);
         if (GameProgress.HamsterExplode.Equals(progress))
         {
-            MicrowaveBack.SetActive(false);
+            foreach (var objectToDisable in ObjectsToDisable)
+            {
+                objectToDisable.SetActive(false);
+            }
             MicrowaveFront.SetActive(true);
             HamsterController.Explode();
         }

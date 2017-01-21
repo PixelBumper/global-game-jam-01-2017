@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.VR;
+using Random = UnityEngine.Random;
 
 public class PostItPuzzleModule : PuzzleModule
 {
-    public PuzzleModule SimpleWiresModule;
-
-    public Keypad KeypadModule;
+    public GameObject ModuleToConfigure;
     public PostItMode PostItMode;
 
     public GameObject PostItSprite;
     public GameObject PostItUISprite;
+
+    public List<GameObject> PuzzleConfigurationObjects;
 
     private SpriteRenderer _spriteRenderer;
 
@@ -61,29 +63,35 @@ public class PostItPuzzleModule : PuzzleModule
     private void CreateInitialPostIt()
     {
         // _spriteRenderer.sprite = selectedPostItSprite;
+        var configuration = PuzzleConfigurationObjects[0].GetComponent<InitialPostItConfiguration>();
+        _spriteRenderer.sprite = configuration.PostItSprite;
         _gameProgressName = GameProgress.TakenInitialPostIt;
     }
 
     private void CreateSimpleWiresPostIt()
     {
-        // generate wires combination
-        if (SimpleWiresModule != null)
+        if (ModuleToConfigure != null)
         {
-            // TODO: SimpleWiresModule.Solution = ...
+            var simpleWiresModule = ModuleToConfigure.GetComponent<SimpleWires>();
+            var randomIndex = Random.Range(0, PuzzleConfigurationObjects.Count);
+            var randomConfiguration = PuzzleConfigurationObjects[randomIndex].GetComponent<SimpleWiresPuzzleConfiguration>();
+            simpleWiresModule.wireSequence = randomConfiguration.wireConfiguration;
+            _spriteRenderer.sprite = randomConfiguration.PostItSprite;
         }
 
-        // _spriteRenderer.sprite = selectedPostItSprite;
         _gameProgressName = GameProgress.TakenSimpleWiresPostIt;
     }
 
     private void CreateEnigmaPostIt()
     {
-        if (KeypadModule != null)
+        if (ModuleToConfigure != null)
         {
-            // TODO: KeypadModule.SetSomething
+            var passwordModule = ModuleToConfigure.GetComponent<PasswordPuzzle>();
+            var randomIndex = Random.Range(0, PuzzleConfigurationObjects.Count);
+            var randomConfiguration = PuzzleConfigurationObjects[randomIndex].GetComponent<PasswordPuzzleConfiguration>();
+            passwordModule.RiddleCode = randomConfiguration.Keycode;
+            _spriteRenderer.sprite = randomConfiguration.PostItSprite;
         }
-
-        // _spriteRenderer.sprite = selectedPostItSprite;
         _gameProgressName = GameProgress.TakenEnigmaPostIt;
     }
 

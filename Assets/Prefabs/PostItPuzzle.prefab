@@ -96,11 +96,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc110af02d77a47eb83a05631004a75b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SimpleWiresModule: {fileID: 0}
-  KeypadModule: {fileID: 0}
+  ModuleToConfigure: {fileID: 0}
   PostItMode: 0
   PostItSprite: {fileID: 1471954843297414}
   PostItUISprite: {fileID: 0}
+  PuzzleConfigurationObjects:
+  - {fileID: 0}
 --- !u!212 &212812837660476330
 SpriteRenderer:
   m_ObjectHideFlags: 1

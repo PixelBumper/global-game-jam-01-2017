@@ -348,7 +348,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 852662638}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &228943955
 SpriteRenderer:
@@ -386,6 +386,11 @@ SpriteRenderer:
   m_Color: {r: 0.93468565, g: 1, b: 0.32352942, a: 1}
   m_FlipX: 0
   m_FlipY: 0
+--- !u!4 &241695579 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da,
+    type: 2}
+  m_PrefabInternal: {fileID: 670424825}
 --- !u!1 &427490703
 GameObject:
   m_ObjectHideFlags: 0
@@ -792,6 +797,58 @@ Transform:
   m_Father: {fileID: 1638816920}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &670424825
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 852662638}
+    m_Modifications:
+    - target: {fileID: 114726922534759224, guid: c6734996b7e324dcbaecb07b610990da,
+        type: 2}
+      propertyPath: wireSequence.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -3.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.89
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4380705493208916, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114726922534759224, guid: c6734996b7e324dcbaecb07b610990da,
+        type: 2}
+      propertyPath: wireSequence.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: c6734996b7e324dcbaecb07b610990da, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &670534669
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,7 +1115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 852662638}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &697159454
 MonoBehaviour:
@@ -1136,7 +1193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &739809520
 Transform:
   m_ObjectHideFlags: 0
@@ -1258,7 +1315,7 @@ GameObject:
   - component: {fileID: 790893036}
   - component: {fileID: 790893037}
   m_Layer: 0
-  m_Name: simpleWiresPuzzle
+  m_Name: simpleWiresPuzzleREMOVE_THIS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1276,7 +1333,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 852662638}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &790893037
 SpriteRenderer:
@@ -1342,6 +1399,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 189829971}
+  - {fileID: 241695579}
   - {fileID: 790893036}
   - {fileID: 1122551279}
   - {fileID: 697159453}
@@ -1575,7 +1633,7 @@ Transform:
   m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_Children: []
   m_Father: {fileID: 852662638}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1122551280
 SpriteRenderer:
@@ -2134,7 +2192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1638816920
 Transform:
   m_ObjectHideFlags: 0

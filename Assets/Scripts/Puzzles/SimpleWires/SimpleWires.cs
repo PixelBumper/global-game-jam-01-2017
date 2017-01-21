@@ -14,12 +14,18 @@ public class SimpleWires : PuzzleModule
     public GameObject wireGreenCut;
     public List<SimpleWireType> wireSequence;
 
+    public bool CanIReceiveInput;
+
     private readonly Dictionary<SimpleWireType, Tuple<GameObject, GameObject>> _wires =
         new Dictionary<SimpleWireType, Tuple<GameObject, GameObject>>();
 
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
+        if (GameProgress.RemovedSimpleWiresPuzzlePanel.Equals(progress))
+        {
+            CanIReceiveInput = true;
+        }
     }
 
     public override GameProgress OwnGameProgressName
@@ -42,7 +48,7 @@ public class SimpleWires : PuzzleModule
 
     public void OnWireClick(SimpleWireType simpleWireType)
     {
-        if (!AmIHolding(GameInventory.Scissors)) return;
+        if (!AmIHolding(GameInventory.Scissors) || !CanIReceiveInput) return;
 
         if (wireSequence.Count > 0 && wireSequence[0] == simpleWireType)
         {

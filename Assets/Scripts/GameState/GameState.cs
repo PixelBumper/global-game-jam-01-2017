@@ -10,6 +10,9 @@ public class GameState : MonoBehaviour
     public GameInventory HeldInventoryItem = GameInventory.None;
 
     public GameInventoryHolder InventoryHolder;
+    public HamsterController HamsterController;
+    public GameObject MicrowaveFront;
+    public List<GameObject> ObjectsToDisable;
 
     private float CurrentTimeInSeconds;
 
@@ -77,7 +80,19 @@ public class GameState : MonoBehaviour
         }
 
         PlayerProgress.Add(progress);
-        NotifyListenersAboutProgress(progress);
+        if (GameProgress.HamsterExplode.Equals(progress))
+        {
+            foreach (var objectToDisable in ObjectsToDisable)
+            {
+                objectToDisable.SetActive(false);
+            }
+            MicrowaveFront.SetActive(true);
+            HamsterController.Explode();
+        }
+        else
+        {
+            NotifyListenersAboutProgress(progress);
+        }
     }
 
     private static void NotifyListenersAboutProgress(GameProgress progress)

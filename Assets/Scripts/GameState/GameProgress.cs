@@ -16,7 +16,7 @@ public enum GameProgress
     ResolvedSimpleWiresPuzzle,
     ResolvedSimonSaysPuzzle,
     RemovedLeversPuzzlePanel,
-    ResolvedLevelsPuzzle,
+    ResolvedLeversPuzzle,
     ResolvedDoorOpen,
     HamsterRescued,
     HamsterExplode

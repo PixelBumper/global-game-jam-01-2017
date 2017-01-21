@@ -175,7 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589142ffc3acc496c80ce6b2ba5f1188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile1: {fileID: 0}
   tile2: {fileID: 0}
   tile3: {fileID: 0}
   tile4: {fileID: 0}
@@ -183,6 +182,7 @@ MonoBehaviour:
   tile6: {fileID: 0}
   tile7: {fileID: 0}
   tile8: {fileID: 0}
+  tile9: {fileID: 0}
 --- !u!1 &203058313
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 203058315}
   - component: {fileID: 203058316}
   m_Layer: 0
-  m_Name: Tile2Sprite
+  m_Name: Tile3Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &204426668
 GameObject:
   m_ObjectHideFlags: 0
@@ -271,7 +271,7 @@ GameObject:
   - component: {fileID: 204426670}
   - component: {fileID: 204426671}
   m_Layer: 0
-  m_Name: Tile8Sprite
+  m_Name: Tile9Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &442135521
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 442135523}
   - component: {fileID: 442135524}
   m_Layer: 0
-  m_Name: Tile7Sprite
+  m_Name: Tile8Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -413,7 +413,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &445750872
 GameObject:
   m_ObjectHideFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 445750874}
   - component: {fileID: 445750875}
   m_Layer: 0
-  m_Name: Tile4Sprite
+  m_Name: Tile5Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &549798531
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 549798533}
   - component: {fileID: 549798534}
   m_Layer: 0
-  m_Name: Tile5Sprite
+  m_Name: Tile6Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -567,7 +567,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &568549800
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ GameObject:
   - component: {fileID: 568549802}
   - component: {fileID: 568549803}
   m_Layer: 0
-  m_Name: Tile1Sprite
+  m_Name: Tile2Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -644,7 +644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &1057424148
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +743,7 @@ GameObject:
   - component: {fileID: 1543977874}
   - component: {fileID: 1543977875}
   m_Layer: 0
-  m_Name: Tile3Sprite
+  m_Name: Tile4Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -808,7 +808,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}
 --- !u!1 &2007911111
 GameObject:
   m_ObjectHideFlags: 0
@@ -849,7 +849,7 @@ GameObject:
   - component: {fileID: 2145655864}
   - component: {fileID: 2145655865}
   m_Layer: 0
-  m_Name: Tile6Sprite
+  m_Name: Tile7Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -914,4 +914,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f822677646ea74a28826c095a05bf2f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  logic: {fileID: 0}
+  logic: {fileID: 116705267}

@@ -807,7 +807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2014d4c5090449cb5c93b3a9663e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingTimeInSeconds: 15
+  StartingTimeInSeconds: 10000
   CurrentInventory: 
   PlayerProgress: 01000000
   HeldInventoryItem: 2

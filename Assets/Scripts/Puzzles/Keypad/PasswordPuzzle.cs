@@ -69,7 +69,7 @@ public class PasswordPuzzle : PuzzleModule
     void Start()
     {
         DisableKeypad();
-        OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
+//        OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
     }
 
     void DisableKeypad()

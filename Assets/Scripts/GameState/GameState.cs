@@ -68,6 +68,12 @@ public class GameState : MonoBehaviour
         InventoryHolder.PickedItem(gameItem);
     }
 
+    public void DropInventoryItem(GameInventory gameItem)
+    {
+        CurrentInventory.Remove(gameItem);
+        InventoryHolder.DropItem(gameItem);
+    }
+
     /// <summary>
     /// Check if a certain progress item has been unlocked
     /// </summary>

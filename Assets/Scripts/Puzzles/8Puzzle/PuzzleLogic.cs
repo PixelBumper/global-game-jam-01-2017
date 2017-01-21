@@ -24,51 +24,82 @@ public class PuzzleLogic : PuzzleModule {
 
 	private static float TILE_SWAP_SPEED = 0.42f;
 	private static int DIMENSIONS = 3;
+	private static int NUM_RANDOM_TILE_MOVEMENTS = 20;
 	private GameObject[] board = new GameObject[DIMENSIONS*DIMENSIONS];
+	private GameObject[] originalBoard = new GameObject[DIMENSIONS*DIMENSIONS];
 
-	// Use this for initialization
 	void Start () {
-		board [0] = emptyTile;
-		board [1] = tile2;
-		board [2] = tile3;
-		board [3] = tile4;
-		board [4] = tile5;
-		board [5] = tile6;
-		board [6] = tile7;
-		board [7] = tile8;
-		board [8] = tile9;
+		//init board
+		originalBoard [0] = emptyTile;
+		originalBoard [1] = tile2;
+		originalBoard [2] = tile3;
+		originalBoard [3] = tile4;
+		originalBoard [4] = tile5;
+		originalBoard [5] = tile6;
+		originalBoard [6] = tile7;
+		originalBoard [7] = tile8;
+		originalBoard [8] = tile9;
+
+		Array.Copy (originalBoard, board, originalBoard.Length);
+		PerformRandomMovements (NUM_RANDOM_TILE_MOVEMENTS);
+		InitTilePositions ();
+	}
+
+	private void PerformRandomMovements(int numMovements) {
+		for (int i = 0; i < numMovements; i++) {
+			//select random adjacent tile from empty tile
+			int emptyTileIndex = Array.IndexOf (board, emptyTile);
+			List<int> adjacentTiles = GetAdjacentTileIndices (emptyTileIndex);
+			int randomIndex = UnityEngine.Random.Range(0, adjacentTiles.Count);
+			int randomTileIndex = adjacentTiles [randomIndex];
+			//swap tile with empty tile
+			GameObject temp = board[emptyTileIndex];
+			board [emptyTileIndex] = board [randomTileIndex];
+			board [randomTileIndex] = temp;
+			//repeat			
+		}
+	}
+
+	private List<int> GetAdjacentTileIndices(int index) {
+		List<int> adjacentTileIndices = new List<int> ();
+		if (index - DIMENSIONS >= 0) {
+			//previous row / up
+			adjacentTileIndices.Add(index - DIMENSIONS);
+		}
+		if (((index + 1) / DIMENSIONS) == (index / DIMENSIONS)) {
+			//right
+			adjacentTileIndices.Add(index + 1);
+		}
+		if (index + DIMENSIONS < board.Length) {
+			//next row / down
+			adjacentTileIndices.Add(index + DIMENSIONS);
+		}
+		if (index - 1 >= 0 && ((index - 1) / DIMENSIONS) == (index / DIMENSIONS)) {
+			adjacentTileIndices.Add(index - 1);
+		}	
+		return adjacentTileIndices;
+	}
+
+	private void InitTilePositions() {
+		Vector3[] originalPositions = new Vector3[originalBoard.Length];
+		for (int i = 0; i < originalBoard.Length; i++) {
+			originalPositions [i] = originalBoard [i].transform.position;
+		}
+		for (int i = 0; i < originalBoard.Length; i++) {
+			GameObject tile = originalBoard [i];
+			int newIndex = Array.IndexOf (board, tile);
+			tile.transform.position = originalPositions [newIndex];
+		}
 	}
 
 	int GetIndexOfFreeAdjacentTile(int index) {
 		if (board [index] == emptyTile) {
 			return -1;
 		}
-		if (index - DIMENSIONS >= 0) {
-			//previous row / up
-			int adjacentIndex = index - DIMENSIONS;
+		foreach (int adjacentIndex in GetAdjacentTileIndices (index)) {
 			if (board [adjacentIndex] == emptyTile) {
 				return adjacentIndex;
 			}
-		}
-		if (((index + 1) / DIMENSIONS) == (index / DIMENSIONS)) {
-			//right
-			int adjacentIndex = index + 1;
-			if (board[adjacentIndex] == emptyTile) {
-				return adjacentIndex;
-			}
-		}
-		if (index + DIMENSIONS < board.Length) {
-			//next row / down
-			int adjacentIndex = index + DIMENSIONS;
-			if (board[adjacentIndex] == emptyTile) {
-				return adjacentIndex;
-			}
-		}
-		if (index - 1 >= 0 && ((index - 1) / DIMENSIONS) == (index / DIMENSIONS)) {
-			int adjacentIndex = index - 1;
-			if (board[adjacentIndex] == emptyTile) {
-				return adjacentIndex;
-			}        
 		}
 		return -1;
 	}

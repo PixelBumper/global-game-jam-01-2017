@@ -28,7 +28,8 @@ public class InitialPuzzleLock : PuzzleModule
     private void OnMouseUpAsButton()
     {
         var globalGameState = GameState.GetGlobalGameState();
-        if (GameInventory.InitialKey.Equals(globalGameState.HeldInventoryItem))
+
+        if (AmIHolding(GameInventory.InitialKey))
         {
             foreach (var chain in chains)
             {

@@ -41,8 +41,7 @@ public class PasswordPuzzle : PuzzleModule
         }
         else
         {
-
-            GameObject.Find("GameState").SendMessage("UnlockGameProgress", GameProgress.HamsterExplode);
+            MarkAsFailed();
         }
     }
 

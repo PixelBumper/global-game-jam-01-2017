@@ -42,13 +42,11 @@ public class PasswordPuzzle : PuzzleModule
     {
         if (_isSolved == false)
         {
-            Debug.LogError("result: " + key);
             int result;
-
 
             if (int.TryParse(key, out result) == false || key[0] != _digitsToType[0])
             {
-                Debug.LogError("Hamster dead");
+                DisableKeypad();
                 MarkAsFailed();
             }
             else
@@ -56,15 +54,13 @@ public class PasswordPuzzle : PuzzleModule
                 _digitsToType = _digitsToType.Substring(1);
                 if (_digitsToType.Length == 0)
                 {
-                    Debug.LogError("password riddle solved");
                     //blink ui to notice that the riddle has been solved
                     foreach (Transform child in transform)
                     {
                         child.GetComponent<Key>().DisallowUsage();
                         child.SendMessage("StartGlowing");
                     }
-                    //move to next riddle
-                    MarkAsSolved();
+                    _isSolved = true;
                 }
             }
         }
@@ -73,7 +69,7 @@ public class PasswordPuzzle : PuzzleModule
     void Start()
     {
         DisableKeypad();
-        OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
+//        OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
     }
 
     void DisableKeypad()
@@ -126,6 +122,7 @@ public class PasswordPuzzle : PuzzleModule
                         child.GetComponent<Key>().SetNormalState();
                         child.GetComponent<Key>().AllowUsage();
                     }
+                    MarkAsSolved();
                 }
             }
         }

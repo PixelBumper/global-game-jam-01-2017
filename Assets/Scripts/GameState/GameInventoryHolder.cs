@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GameInventoryHolder : MonoBehaviour
@@ -47,20 +46,30 @@ public class GameInventoryHolder : MonoBehaviour
     public void HoldKeys()
     {
         GameState.GetGlobalGameState().HeldInventoryItem = GameInventory.InitialKey;
+        UseAsCursor(GameState.GetGlobalGameState().KeyCursorTexture);
     }
 
     public void HoldHand()
     {
         GameState.GetGlobalGameState().HeldInventoryItem = GameInventory.None;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
     }
 
     public void HoldScissors()
     {
         GameState.GetGlobalGameState().HeldInventoryItem = GameInventory.Scissors;
+        UseAsCursor(GameState.GetGlobalGameState().ScissorCursorTexture);
     }
 
     public void HoldScrewdriver()
     {
         GameState.GetGlobalGameState().HeldInventoryItem = GameInventory.Screwdriver;
+        UseAsCursor(GameState.GetGlobalGameState().ScrewDriverCursorTexture);
+    }
+
+    private static void UseAsCursor(Texture2D keyCursorTexture)
+    {
+        Vector2 cursorHotspot = new Vector2(keyCursorTexture.width / 2, keyCursorTexture.height / 2);
+        Cursor.SetCursor(keyCursorTexture, cursorHotspot, CursorMode.Auto);
     }
 }

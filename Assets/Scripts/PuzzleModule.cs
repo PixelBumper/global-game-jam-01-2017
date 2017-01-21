@@ -1,4 +1,5 @@
-﻿using UnityEngine;/// <summary>
+﻿using System;
+using UnityEngine;/// <summary>
 /// Interface to implemented by the puzzle module behaviours
 /// </summary>
 public abstract class PuzzleModule : MonoBehaviour
@@ -50,6 +51,11 @@ public abstract class PuzzleModule : MonoBehaviour
     protected void MarkAsFailed()
     {
         GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
+    }
+
+    protected bool AmIHolding(GameInventory gameInventory)
+    {
+        return GameState.GetGlobalGameState().HeldInventoryItem == gameInventory;
     }
 
     private void Awake()

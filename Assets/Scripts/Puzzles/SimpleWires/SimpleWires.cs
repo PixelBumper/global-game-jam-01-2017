@@ -42,6 +42,8 @@ public class SimpleWires : PuzzleModule
 
     public void OnWireClick(SimpleWireType simpleWireType)
     {
+        if (!AmIHolding(GameInventory.Scissors)) return;
+
         if (wireSequence[0] == simpleWireType)
         {
             _wires[simpleWireType].First.SetActive(false);

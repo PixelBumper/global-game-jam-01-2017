@@ -1,47 +1,61 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleWires : PuzzleModule {
+public class SimpleWires : PuzzleModule
+{
+    public GameObject wireYellow;
+    public GameObject wireRed;
+    public GameObject wireBlue;
+    public GameObject wireGreen;
+    public GameObject wireYellowCut;
+    public GameObject wireRedCut;
+    public GameObject wireBlueCut;
+    public GameObject wireGreenCut;
+    public List<SimpleWireType> wireSequence;
+
+    private readonly Dictionary<SimpleWireType, Tuple<GameObject, GameObject>> _wires = new Dictionary<SimpleWireType, Tuple<GameObject, GameObject>>();
+
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
-
     }
 
     public override void OnBecomeInteractable()
     {
-
     }
 
-    void Start()
+    private void Start()
     {
-    }
+        _wires.Add(SimpleWireType.Red, Tuple.Create(wireRed, wireRedCut));
+        _wires.Add(SimpleWireType.Blue, Tuple.Create(wireBlue, wireBlueCut));
+        _wires.Add(SimpleWireType.Green, Tuple.Create(wireGreen, wireGreenCut));
+        _wires.Add(SimpleWireType.Yellow, Tuple.Create(wireYellow, wireYellowCut));
 
-    // Update is called once per frame
-    void Update()
-    {
-        RaycastHit hit;
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Input.GetMouseButtonDown(0))
+        foreach (var keyValuePair in _wires)
         {
-            Debug.Log("Mouse Click SimpleWires");
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                Debug.Log("Test");
-
-                BoxCollider bc = hit.collider as BoxCollider;
-                if (bc != null)
-                {
-                    Destroy(bc.gameObject);
-                }
-            }
+            keyValuePair.Value.Second.SetActive(false);
         }
     }
 
-    private void OnMouseUpAsButton()
+    public void OnWireClick(SimpleWireType simpleWireType)
     {
-        Debug.Log("OnMouseUpAsButton");
+        if (wireSequence[0] == simpleWireType)
+        {
+            _wires[simpleWireType].First.SetActive(false);
+            _wires[simpleWireType].Second.SetActive(true);
+
+            wireSequence.RemoveAt(0);
+
+            if (wireSequence.Count == 0)
+            {
+                GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.ResolvedSimpleWiresPuzzle);
+                MarkAsSolved();
+            }
+        }
+        else
+        {
+            GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
+        }
     }
 }

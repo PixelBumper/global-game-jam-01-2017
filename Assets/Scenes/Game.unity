@@ -575,7 +575,7 @@ MonoBehaviour:
   SecondsRemaining: 0
   CurrentInventory: 
   PlayerProgress: 01000000
-  HeldInventoryItem: 0
+  HeldInventoryItem: 2
   InventoryHolder: {fileID: 1439843758}
 --- !u!4 &445608222
 Transform:
@@ -1642,6 +1642,10 @@ Prefab:
     - target: {fileID: 4297287181806380, guid: 342d12fe5b85548e5a1fbb0f15d96a02, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959055607592886, guid: 342d12fe5b85548e5a1fbb0f15d96a02, type: 2}
+      propertyPath: m_TagString
+      value: Timer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 342d12fe5b85548e5a1fbb0f15d96a02, type: 2}

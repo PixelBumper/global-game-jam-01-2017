@@ -36,6 +36,15 @@ public class GameState : MonoBehaviour
     }
 
     /// <summary>
+    /// Gets the timer
+    /// </summary>
+    /// <returns></returns>
+    public static Timer GetTimer()
+    {
+        return GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+    }
+
+    /// <summary>
     /// Unlocks a part of game progress for the player
     /// </summary>
     /// <param name="progress">the progress to unlock</param>

@@ -58,6 +58,11 @@ public abstract class PuzzleModule : MonoBehaviour
         return GameState.GetGlobalGameState().HeldInventoryItem == gameInventory;
     }
 
+    protected void AddTimeInSeconds(int seconds)
+    {
+        GameState.GetTimer().AddTimeInSeconds(seconds);
+    }
+
     private void Awake()
     {
         // Disable the puzzle

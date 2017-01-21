@@ -453,6 +453,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 02ce8943d6b274992919a4f855e684d6,
         type: 3}
+    - target: {fileID: 1959055607592886, guid: 342d12fe5b85548e5a1fbb0f15d96a02, type: 2}
+      propertyPath: m_TagString
+      value: Timer
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 342d12fe5b85548e5a1fbb0f15d96a02, type: 2}
   m_IsPrefabParent: 0

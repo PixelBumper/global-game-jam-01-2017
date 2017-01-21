@@ -54,6 +54,7 @@ public class SimpleWires : PuzzleModule
             if (wireSequence.Count == 0)
             {
                 MarkAsSolved();
+                AddTimeInSeconds(5);
             }
         }
         else

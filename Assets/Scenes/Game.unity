@@ -762,6 +762,7 @@ MonoBehaviour:
   InventoryHolder: {fileID: 1439843758}
   HamsterController: {fileID: 175906362}
   MicrowaveFront: {fileID: 1638816919}
+  KeyCursorTexture: {fileID: 2800000, guid: d146fe3eddcae4643b27f7e431f6b3c1, type: 3}
   ObjectsToDisable:
   - {fileID: 739809519}
   - {fileID: 427490703}

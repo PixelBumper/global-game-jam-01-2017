@@ -57,15 +57,6 @@ public abstract class PuzzleModule : MonoBehaviour
         GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
     }
 
-    /// <summary>
-    /// Checks if the puzzle is solved, manual property because of unity serialization issues
-    /// </summary>
-    /// <returns></returns>
-    public bool IsSolved()
-    {
-        return _isSolved;
-    }
-
     private void Awake()
     {
         // Disable the puzzle

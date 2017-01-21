@@ -13,6 +13,8 @@ public class GameState : MonoBehaviour
     public HamsterController HamsterController;
     public GameObject MicrowaveFront;
     public Texture2D KeyCursorTexture;
+    public Texture2D ScissorCursorTexture;
+    public Texture2D ScrewDriverCursorTexture;
     public List<GameObject> ObjectsToDisable;
 
     private float CurrentTimeInSeconds;

@@ -763,6 +763,10 @@ MonoBehaviour:
   HamsterController: {fileID: 175906362}
   MicrowaveFront: {fileID: 1638816919}
   KeyCursorTexture: {fileID: 2800000, guid: d146fe3eddcae4643b27f7e431f6b3c1, type: 3}
+  ScissorCursorTexture: {fileID: 2800000, guid: 2a9db1d8eabc84768bc0dbc827b60abd,
+    type: 3}
+  ScrewDriverCursorTexture: {fileID: 2800000, guid: d630ba1d48b1148d6aa2839324924277,
+    type: 3}
   ObjectsToDisable:
   - {fileID: 739809519}
   - {fileID: 427490703}

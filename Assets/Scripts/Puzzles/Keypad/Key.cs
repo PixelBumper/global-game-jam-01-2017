@@ -4,11 +4,14 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
+public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler,
+    IPointerUpHandler
 {
     private SpriteRenderer _renderer;
 
     private Color _normalColor;
+
+    public bool active;
 
     public Sprite normal;
 
@@ -19,6 +22,7 @@ public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPo
     // Use this for initialization
     void Start()
     {
+        active = true;
         _renderer = GetComponent<SpriteRenderer>();
         _normalColor = _renderer.color;
     }
@@ -42,17 +46,51 @@ public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPo
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.LogError("sending number");
-        transform.parent.gameObject.SendMessage("PressedKey", name);
+        if (active)
+        {
+            Debug.LogError("sending number");
+            transform.parent.gameObject.SendMessage("PressedKey", name);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        _renderer.sprite = glowing;
+        if (active)
+        {
+            _renderer.sprite = pressed;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
+        if (active)
+        {
+            SetNormalState();
+        }
+    }
+
+    public void DisallowUsage()
+    {
+        active = false;
+    }
+
+    public void AllowUsage()
+    {
+        active = true;
+    }
+
+    public void StartGlowing()
+    {
+        _renderer.sprite = glowing;
+    }
+
+    public void SetNormalState()
+    {
         _renderer.sprite = normal;
+    }
+
+    public void SetPressedState()
+    {
+        _renderer.sprite = pressed;
     }
 }

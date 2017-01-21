@@ -55,9 +55,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4321755105581284}
-  - component: {fileID: 114729912387230984}
   - component: {fileID: 212343572714311402}
   - component: {fileID: 95693420254232408}
+  - component: {fileID: 114567059831858242}
+  - component: {fileID: 114503670681939320}
+  - component: {fileID: 82067794087759730}
   m_Layer: 0
   m_Name: Keypad
   m_TagString: Untagged
@@ -329,8 +331,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123130256644396}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.7, y: 0.7, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4940509850038960}
@@ -594,6 +596,86 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 0.9, y: 0.9}
+--- !u!82 &82067794087759730
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123130256644396}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95693420254232408
 Animator:
   serializedVersion: 3
@@ -622,6 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: f9e9e3bf88a0c41048c140e4dc76e1e6, type: 3}
   pressed: {fileID: 21300000, guid: 64ae72de71b934297981382a2cc18b75, type: 3}
   glowing: {fileID: 21300000, guid: 866a9e8bbed164dc0a4a7dff969411f2, type: 3}
@@ -636,6 +719,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 38751666f02ab47fa8c42a5035248ca8, type: 3}
   pressed: {fileID: 21300000, guid: f6fee5de0534c4bdd985ad39d8f6d499, type: 3}
   glowing: {fileID: 21300000, guid: 5c544dab3d4a141958d355f20c82bcbe, type: 3}
@@ -650,6 +734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 347554be8e4ae4b5c89255b77ddf9cf5, type: 3}
   pressed: {fileID: 21300000, guid: cf33ef10fb6ff46d7afa8d6f14482191, type: 3}
   glowing: {fileID: 21300000, guid: 2d6194005d5454f4ea9acd34429fcc4a, type: 3}
@@ -664,6 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 0bce4895e4cd54d0ca6a6f2f2d17fae1, type: 3}
   pressed: {fileID: 21300000, guid: 9955cb51f2d2a494da190b8ce0f2f116, type: 3}
   glowing: {fileID: 21300000, guid: 87eba8739fd0b42a48aa0a409451c171, type: 3}
@@ -678,6 +764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 937e808910afb41dd9c0cd90e8d164bb, type: 3}
   pressed: {fileID: 21300000, guid: 8a5988084139e46fd852705bf076b739, type: 3}
   glowing: {fileID: 21300000, guid: bf2d45a578c5045c9a2b3bdc831fe2c9, type: 3}
@@ -692,6 +779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 2b087a203c349477d8756f7d33d32284, type: 3}
   pressed: {fileID: 21300000, guid: d0526378e60164d87ae0c59e0bce6f0c, type: 3}
   glowing: {fileID: 21300000, guid: 422ed25f96f0b4ad29e4748c7d0553bd, type: 3}
@@ -706,10 +794,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 7ef5760a9811f4e36b9ac0e8801ae5bf, type: 3}
   pressed: {fileID: 21300000, guid: e57bfbf6d0653427093823689a42589f, type: 3}
   glowing: {fileID: 21300000, guid: 665dea932777f4ba899b990bd8382e72, type: 3}
---- !u!114 &114729912387230984
+--- !u!114 &114503670681939320
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -717,9 +806,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1123130256644396}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95b81e1b6c86840e29b0bfdf175977f3, type: 3}
+  m_Script: {fileID: 11500000, guid: bd58a033192674cefa2b88e7b7031c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _blinkInterval: 0.25
+  _pauseInterval: 0.5
+--- !u!114 &114567059831858242
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123130256644396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5366f9c27e04ae29ea3da53751889e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RiddleCode: 1234
 --- !u!114 &114809332291595918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -731,6 +834,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 69cb4e7d3ad8e43b59b9715f2e351895, type: 3}
   pressed: {fileID: 21300000, guid: 56fcf51e149944c6f8b52a1989498d7e, type: 3}
   glowing: {fileID: 21300000, guid: d4af1b43278234dc1b963ce84baa41e5, type: 3}
@@ -745,6 +849,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: 3e488e8a077224432af59ba44b4fdc2d, type: 3}
   pressed: {fileID: 21300000, guid: 2360322d91d4c43b4b18022447c3252a, type: 3}
   glowing: {fileID: 21300000, guid: d05591e8ce873442b93b1ea66bf06f43, type: 3}
@@ -759,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: fd70590e88ebd4865a936d16e68afa62, type: 3}
   pressed: {fileID: 21300000, guid: 1dccb33750824453aafce997dcf28d4d, type: 3}
   glowing: {fileID: 21300000, guid: 8d6eae54af99e4d54850b20962d2c936, type: 3}
@@ -773,6 +879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: d45de1e2fbc6641fe87f2e6796193acb, type: 3}
   pressed: {fileID: 21300000, guid: 73d8bf1ada88a412b88e1890b37795bf, type: 3}
   glowing: {fileID: 21300000, guid: 02ce8943d6b274992919a4f855e684d6, type: 3}
@@ -787,6 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc40b0f5b589243bd894f0d0e6932fc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  active: 0
   normal: {fileID: 21300000, guid: bbd4bb221918b47d1a76efbcb45af339, type: 3}
   pressed: {fileID: 21300000, guid: a4a2c3217882948da84bdbe7d9231d0f, type: 3}
   glowing: {fileID: 21300000, guid: 1bda154887eb24e32ad8ea26a34a2dd0, type: 3}

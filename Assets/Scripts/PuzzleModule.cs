@@ -14,7 +14,7 @@ public abstract class PuzzleModule : MonoBehaviour
     /// <summary>
     /// Determines if the puzzle module is solved
     /// </summary>
-    private bool _isSolved;
+    protected bool _isSolved;
 
     /// <summary>
     /// called by the game state whenever the player finished a certain game progress
@@ -56,6 +56,11 @@ public abstract class PuzzleModule : MonoBehaviour
     protected bool AmIHolding(GameInventory gameInventory)
     {
         return GameState.GetGlobalGameState().HeldInventoryItem == gameInventory;
+    }
+
+    protected void AddTimeInSeconds(int seconds)
+    {
+        GameState.GetTimer().AddTimeInSeconds(seconds);
     }
 
     private void Awake()

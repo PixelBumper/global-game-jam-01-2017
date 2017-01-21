@@ -1121,10 +1121,9 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4321755105581284, guid: 8f8c6ddc40a0444679349d55ec133fab, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114729912387230984, guid: 8f8c6ddc40a0444679349d55ec133fab, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f8c6ddc40a0444679349d55ec133fab, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &908168170
@@ -1646,28 +1645,11 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1379007616 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1123130256644396, guid: 8f8c6ddc40a0444679349d55ec133fab,
-    type: 2}
-  m_PrefabInternal: {fileID: 887750842}
 --- !u!4 &1379007617 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4321755105581284, guid: 8f8c6ddc40a0444679349d55ec133fab,
     type: 2}
   m_PrefabInternal: {fileID: 887750842}
---- !u!114 &1379007618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1379007616}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b5366f9c27e04ae29ea3da53751889e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  riddleCode: 1234
 --- !u!1 &1394507661
 GameObject:
   m_ObjectHideFlags: 0

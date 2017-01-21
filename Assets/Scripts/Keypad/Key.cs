@@ -4,11 +4,17 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(SpriteRenderer))]
-public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
     private SpriteRenderer _renderer;
 
     private Color _normalColor;
+
+    public Sprite normal;
+
+    public Sprite pressed;
+
+    public Sprite glowing;
 
     // Use this for initialization
     void Start()
@@ -24,13 +30,13 @@ public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPo
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _renderer.color = new Color(0, 100, 0);
+//        _renderer.color = new Color(0, 100, 0);
 //        Debug.LogError("Enter");
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        _renderer.color = _normalColor;
+//        _renderer.color = _normalColor;
 //        Debug.LogError("Exit");
     }
 
@@ -38,5 +44,15 @@ public class Key : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPo
     {
         Debug.LogError("sending number");
         transform.parent.gameObject.SendMessage("PressedKey", name);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        _renderer.sprite = glowing;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        _renderer.sprite = normal;
     }
 }

@@ -100,6 +100,7 @@ MonoBehaviour:
   KeypadModule: {fileID: 0}
   PostItMode: 0
   PostItSprite: {fileID: 1471954843297414}
+  PostItUISprite: {fileID: 0}
 --- !u!212 &212812837660476330
 SpriteRenderer:
   m_ObjectHideFlags: 1

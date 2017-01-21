@@ -2,25 +2,30 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PostItPuzzleModule : PuzzleModule
 {
-    // FIXME: make concrete types of submodules
     public PuzzleModule SimpleWiresModule;
 
     public Keypad KeypadModule;
     public PostItMode PostItMode;
 
     public GameObject PostItSprite;
+    public GameObject PostItUISprite;
 
-    private Vector3 _originalPosition;
-    private Vector3 _originalScale;
+    private SpriteRenderer _spriteRenderer;
+
     private bool _isFullscreen = false;
 
     private GameProgress _gameProgressName;
-
     public override GameProgress OwnGameProgressName {
         get { return _gameProgressName; }
+    }
+
+    void Awake()
+    {
+        _spriteRenderer = PostItSprite.GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -41,12 +46,21 @@ public class PostItPuzzleModule : PuzzleModule
                 throw new ArgumentOutOfRangeException();
         }
 
+        ConfigureUISprite();
         AdaptBoxColliderToSprite();
+    }
+
+    private void ConfigureUISprite()
+    {
+        if (PostItUISprite != null)
+        {
+            PostItUISprite.GetComponent<PostItUISprite>().ConfigureForSprite(_spriteRenderer.sprite);
+        }
     }
 
     private void CreateInitialPostIt()
     {
-        // PostItSprite.GetComponent<SpriteRenderer>().sprite = selectedPostItSprite;
+        // _spriteRenderer.sprite = selectedPostItSprite;
         _gameProgressName = GameProgress.TakenInitialPostIt;
     }
 
@@ -58,7 +72,7 @@ public class PostItPuzzleModule : PuzzleModule
             // TODO: SimpleWiresModule.Solution = ...
         }
 
-        // PostItSprite.GetComponent<SpriteRenderer>().sprite = selectedPostItSprite;
+        // _spriteRenderer.sprite = selectedPostItSprite;
         _gameProgressName = GameProgress.TakenSimpleWiresPostIt;
     }
 
@@ -69,7 +83,7 @@ public class PostItPuzzleModule : PuzzleModule
             // TODO: KeypadModule.SetSomething
         }
 
-        // PostItSprite.GetComponent<SpriteRenderer>().sprite = selectedPostItSprite;
+        // _spriteRenderer.sprite = selectedPostItSprite;
         _gameProgressName = GameProgress.TakenEnigmaPostIt;
     }
 
@@ -100,7 +114,7 @@ public class PostItPuzzleModule : PuzzleModule
 
     private void AdaptBoxColliderToSprite()
     {
-        var sprite = PostItSprite.GetComponent<SpriteRenderer>().sprite;
+        var sprite = _spriteRenderer.sprite;
         var boxCollider2D = gameObject.GetComponent<BoxCollider2D>();
         boxCollider2D.size = sprite.bounds.size;
     }
@@ -109,10 +123,7 @@ public class PostItPuzzleModule : PuzzleModule
     {
         const float tweenTime = 0.3f;
 
-        var sprite = PostItSprite.GetComponent<SpriteRenderer>().sprite;
-
-        _originalPosition = transform.position;
-        _originalScale = transform.localScale;
+        var sprite = _spriteRenderer.sprite;
 
         var centerPosition = Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 1.0f));
         LeanTween.move(gameObject, centerPosition, tweenTime).setEaseInOutQuad();
@@ -143,9 +154,8 @@ public class PostItPuzzleModule : PuzzleModule
 
     private void MinimizeFromFullscreen()
     {
-        const float tweenTime = 0.3f;
-        LeanTween.move(gameObject, _originalPosition, tweenTime).setEaseInOutQuad();
-        LeanTween.scale(gameObject, _originalScale, tweenTime).setEaseInOutQuad();
+        const float tweenTime = 0.5f;
+        LeanTween.scale(gameObject, new Vector3(0.8f, 0.8f, 1.0f), tweenTime).setEaseInOutCubic();
         LeanTween.alpha(gameObject, 0.0f, tweenTime)
             .setOnComplete(RemoveYourselfAndAlertGameSystem);
     }
@@ -154,5 +164,10 @@ public class PostItPuzzleModule : PuzzleModule
     {
         MarkAsSolved();
         GameObject.Destroy(gameObject);
+
+        if (PostItUISprite != null)
+        {
+            PostItUISprite.GetComponent<PostItUISprite>().MakeAvailableInInventory();
+        }
     }
 }

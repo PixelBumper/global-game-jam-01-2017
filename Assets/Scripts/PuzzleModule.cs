@@ -60,7 +60,7 @@ public abstract class PuzzleModule : MonoBehaviour
 
     protected void AddTimeInSeconds(int seconds)
     {
-        GameState.GetTimer().AddTimeInSeconds(seconds);
+        GameState.AddTimeInSeconds(seconds);
     }
 
     private void Awake()

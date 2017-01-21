@@ -40,5 +40,8 @@ public class SimpleWires : PuzzleModule {
         }
     }
 
-
+    private void OnMouseUpAsButton()
+    {
+        Debug.Log("OnMouseUpAsButton");
+    }
 }

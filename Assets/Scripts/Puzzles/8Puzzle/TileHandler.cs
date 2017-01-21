@@ -6,9 +6,9 @@ public class TileHandler : MonoBehaviour {
 
 	public PuzzleLogic logic;
 
-	private void OnMouseUpAsButton()
+	private void OnMouseDown()
 	{
-		Debug.Log ("TileHandler OnMouseUpAsButton");
+		Debug.Log ("TileHandler OnMouseDown");
 		logic.OnTileClicked (gameObject);
 	}
 }

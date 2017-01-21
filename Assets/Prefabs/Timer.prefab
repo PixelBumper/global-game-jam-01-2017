@@ -124,7 +124,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1959055607592886}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.012748903, y: 0.7862601, z: 0}
+  m_LocalPosition: {x: 4.7, y: 3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4555402324152418}
@@ -171,6 +171,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb3294cb43e15415a86b4450bc884e48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingTimeInSeconds: 30
+  m1GameObject: {fileID: 1448071978107308}
+  m2GameObject: {fileID: 1672118644296802}
+  s1GameObject: {fileID: 1190529752449754}
+  s2GameObject: {fileID: 1807687071584974}
+  sprites:
+  - {fileID: 21300000, guid: 0bce4895e4cd54d0ca6a6f2f2d17fae1, type: 3}
+  - {fileID: 21300000, guid: f9e9e3bf88a0c41048c140e4dc76e1e6, type: 3}
+  - {fileID: 21300000, guid: 3e488e8a077224432af59ba44b4fdc2d, type: 3}
+  - {fileID: 21300000, guid: fd70590e88ebd4865a936d16e68afa62, type: 3}
+  - {fileID: 21300000, guid: 69cb4e7d3ad8e43b59b9715f2e351895, type: 3}
+  - {fileID: 21300000, guid: 38751666f02ab47fa8c42a5035248ca8, type: 3}
+  - {fileID: 21300000, guid: bbd4bb221918b47d1a76efbcb45af339, type: 3}
+  - {fileID: 21300000, guid: 937e808910afb41dd9c0cd90e8d164bb, type: 3}
+  - {fileID: 21300000, guid: 7ef5760a9811f4e36b9ac0e8801ae5bf, type: 3}
+  - {fileID: 21300000, guid: d45de1e2fbc6641fe87f2e6796193acb, type: 3}
 --- !u!212 &212311422115404198
 SpriteRenderer:
   m_ObjectHideFlags: 1

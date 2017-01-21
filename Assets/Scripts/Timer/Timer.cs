@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class Timer : MonoBehaviour
 {
-    public float StartingTimeInSeconds;
-
     public GameObject m1GameObject;
     public GameObject m2GameObject;
     public GameObject s1GameObject;
@@ -12,39 +10,20 @@ public class Timer : MonoBehaviour
 
     public List<Sprite> sprites;
 
-    private float CurrentTimeInSeconds;
-
-    void Start()
+    public void UpdateTime(int time)
     {
-        CurrentTimeInSeconds = StartingTimeInSeconds;
+        var minutes = (time % 3600) / 60;
+        var seconds = time % 60;
+
+        m1GameObject.GetComponent<SpriteRenderer>().sprite = GetSprite(minutes / 10);
+        m2GameObject.GetComponent<SpriteRenderer>().sprite = GetSprite(minutes % 10);
+
+        s1GameObject.GetComponent<SpriteRenderer>().sprite = GetSprite(seconds / 10);
+        s2GameObject.GetComponent<SpriteRenderer>().sprite = GetSprite(seconds % 10);
     }
 
-    void Update()
+    private Sprite GetSprite(int index)
     {
-        CurrentTimeInSeconds -= Time.deltaTime;
-
-        UpdateUi();
-
-        if (CurrentTimeInSeconds <= 10)
-        {
-            // TODO: play sound
-        }
-
-        if (CurrentTimeInSeconds <= 0)
-        {
-            GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
-        }
-    }
-
-    private void UpdateUi()
-    {
-        int minutes = (int) ((CurrentTimeInSeconds % 3600) / 60);
-        int seconds = (int) (CurrentTimeInSeconds % 60);
-
-        m1GameObject.GetComponent<SpriteRenderer>().sprite = sprites[minutes / 10];
-        m2GameObject.GetComponent<SpriteRenderer>().sprite = sprites[minutes % 10];
-
-        s1GameObject.GetComponent<SpriteRenderer>().sprite = sprites[seconds / 10];
-        s2GameObject.GetComponent<SpriteRenderer>().sprite = sprites[seconds % 10];
+        return index < 0 ? sprites[0] : sprites[index];
     }
 }

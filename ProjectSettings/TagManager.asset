@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GameState
   - PuzzleModule
+  - Timer
   layers:
   - Default
   - TransparentFX

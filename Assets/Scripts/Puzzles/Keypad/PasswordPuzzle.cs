@@ -42,9 +42,7 @@ public class PasswordPuzzle : PuzzleModule
     {
         if (_isSolved == false)
         {
-            Debug.LogError("result: " + key);
             int result;
-
 
             if (int.TryParse(key, out result) == false || key[0] != _digitsToType[0])
             {
@@ -61,8 +59,7 @@ public class PasswordPuzzle : PuzzleModule
                         child.GetComponent<Key>().DisallowUsage();
                         child.SendMessage("StartGlowing");
                     }
-                    //move to next riddle
-                    MarkAsSolved();
+                    _isSolved = true;
                 }
             }
         }
@@ -124,6 +121,7 @@ public class PasswordPuzzle : PuzzleModule
                         child.GetComponent<Key>().SetNormalState();
                         child.GetComponent<Key>().AllowUsage();
                     }
+                    MarkAsSolved();
                 }
             }
         }

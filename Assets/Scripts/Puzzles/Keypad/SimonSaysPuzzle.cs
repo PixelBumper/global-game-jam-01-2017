@@ -34,8 +34,6 @@ public class SimonSaysPuzzle : PuzzleModule
 
     private bool _waitForPlayerInput;
 
-    private float _timeout;
-
     private SimonSayStates _simonSayStates;
 
     public enum SimonSayStates
@@ -60,7 +58,7 @@ public class SimonSaysPuzzle : PuzzleModule
         _numberOfCorrectAnswers = 0;
         _lastCorrectKeyPosition = 0;
 
-        OnPlayerProgress(GameProgress.ResolvedEnigmaPuzzle);
+//        OnPlayerProgress(GameProgress.ResolvedEnigmaPuzzle);
     }
 
     // Use this for initialization
@@ -69,13 +67,14 @@ public class SimonSaysPuzzle : PuzzleModule
         if (progress == GameProgress.ResolvedEnigmaPuzzle)
         {
             _sequence = new List<int>();
-            for (int i = 0; i <= 9; i++)
+            for (int i = 0; i <= 1; i++)
             {
                 _sequence.Add(i);
             }
 
             Shuffle(_sequence);
             _simonSayStates = SimonSayStates.ShowingSequenceKeyOff;
+            _active = true;
         }
     }
 
@@ -100,36 +99,36 @@ public class SimonSaysPuzzle : PuzzleModule
     {
         if (_active)
         {
-            Debug.LogError("result: " + key);
+            _simonSayStates = SimonSayStates.WaitingForInput;
+            _timePassed = 0;
+
             int result;
 
 
-            if (int.TryParse(key, out result) == false || key[0] != _sequence[_lastCorrectKeyPosition])
+            if (int.TryParse(key, out result) == false || result != _sequence[_lastCorrectKeyPosition])
             {
-                Debug.LogError("Hamster dead");
                 MarkAsFailed();
             }
             else
             {
-                if (_lastCorrectKeyPosition == 0)
+
+                _lastCorrectKeyPosition++;
+                if (_lastCorrectKeyPosition > _numberOfCorrectAnswers)
                 {
-                    //stop showing simon sequence
+                    _numberOfCorrectAnswers++;
+                    _lastCorrectKeyPosition = 0;
+                    _simonSayStates = SimonSayStates.SequenceBreak;
+                    _nextButtonToGlow = 0;
                 }
 
-                Debug.LogError("increasing sequence");
-                if (_lastCorrectKeyPosition == 10)
+                if (_numberOfCorrectAnswers >= _sequence.Count)
                 {
-                    MarkAsSolved();
-                }
-                else
-                {
-                    _lastCorrectKeyPosition++;
-                    if (_lastCorrectKeyPosition + 1 == _numberOfCorrectAnswers)
+                    _simonSayStates = SimonSayStates.Solved;
+                    foreach (Transform child in transform)
                     {
-                        _numberOfCorrectAnswers++;
-                        _lastCorrectKeyPosition = 0;
-                        // loop current simon sequence until the user starts answering again
+                        child.GetComponent<Key>().SetPressedState();
                     }
+                    MarkAsSolved();
                 }
             }
         }
@@ -139,7 +138,7 @@ public class SimonSaysPuzzle : PuzzleModule
     // Update is called once per frame
     void Update()
     {
-        if (_simonSayStates != SimonSayStates.Disabled)
+        if (_simonSayStates != SimonSayStates.Disabled && _simonSayStates != SimonSayStates.Solved)
         {
             _timePassed += Time.deltaTime;
             switch (_simonSayStates)
@@ -158,7 +157,7 @@ public class SimonSaysPuzzle : PuzzleModule
                 case SimonSayStates.ShowingSequenceKeyOff:
                     if (_timePassed >= _blinkInterval)
                     {
-                        if (_nextButtonToGlow == _numberOfCorrectAnswers+1)
+                        if (_nextButtonToGlow == _numberOfCorrectAnswers + 1)
                         {
                             _simonSayStates = SimonSayStates.SequenceBreak;
                         }

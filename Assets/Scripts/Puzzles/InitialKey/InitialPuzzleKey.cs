@@ -27,7 +27,6 @@ public class InitialPuzzleKey : PuzzleModule
 
     private void OnMouseUpAsButton()
     {
-        Debug.Log("HAHAHAHAHA");
         key.SetActive(false);
         var globalGameState = GameState.GetGlobalGameState();
         globalGameState.PickInventoryItem(GameInventory.InitialKey);

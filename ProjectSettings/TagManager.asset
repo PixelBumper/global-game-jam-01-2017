@@ -6,6 +6,9 @@ TagManager:
   tags:
   - GameState
   - PuzzleModule
+  - SimpleWiresGreen
+  - SimpleWiresRed
+  - SimpleWiresBlue
   layers:
   - Default
   - TransparentFX

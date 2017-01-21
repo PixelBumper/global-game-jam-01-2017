@@ -4,60 +4,131 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class PasswordPuzzle : PuzzleModule
 {
-    public int riddleCode;
+    public int RiddleCode;
 
-    private String digitsToType;
+    private String _digitsToType;
+
+    private float _blinkInterval = 0.25f;
+
+    private int _maxBlinkRepetitions = 3;
+
+    private int _blinkCount = 0;
+
+    private float _timePassed = 0.0f;
+
+    private bool _glowing = true;
+
 
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (progress == GameProgress.TakenEnigmaPostIt)
         {
-            digitsToType = riddleCode + "";
+            _digitsToType = RiddleCode + "";
+            EnableKeypad();
             // make interacteble
         }
     }
 
     public override GameProgress OwnGameProgressName
     {
-        get { return GameProgress.ResolvedSimpleWiresPuzzle; } // TODO: still needs something
+        get { return GameProgress.ResolvedEnigmaPuzzle; } // TODO: still needs something
     }
 
     void PressedKey(String key)
     {
-        Debug.LogError("result: " + key);
-        int result;
+        if (_isSolved == false)
+        {
+            Debug.LogError("result: " + key);
+            int result;
 
 
-        if (int.TryParse(key, out result) == false || key[0] != digitsToType[0])
-        {
-            Debug.LogError("Hamster dead");
-            MarkAsFailed();
-        }
-        else
-        {
-            digitsToType = digitsToType.Substring(1);
-            if (digitsToType.Length == 0)
+            if (int.TryParse(key, out result) == false || key[0] != _digitsToType[0])
             {
-                //blink ui to notice that the riddle has been solved
-                //move to next riddle
-
-
-                Debug.LogError("password riddle solved");
-                GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.ResolvedEnigmaPuzzle);
+                Debug.LogError("Hamster dead");
+                MarkAsFailed();
+            }
+            else
+            {
+                _digitsToType = _digitsToType.Substring(1);
+                if (_digitsToType.Length == 0)
+                {
+                    Debug.LogError("password riddle solved");
+                    //blink ui to notice that the riddle has been solved
+                    foreach (Transform child in transform)
+                    {
+                        child.GetComponent<Key>().DisallowUsage();
+                        child.SendMessage("StartGlowing");
+                    }
+                    //move to next riddle
+                    MarkAsSolved();
+                }
             }
         }
     }
 
     void Start()
     {
+        DisableKeypad();
         OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
+    }
+
+    void DisableKeypad()
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Key>().DisallowUsage();
+        }
+    }
+
+    void EnableKeypad()
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Key>().AllowUsage();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (_isSolved && _blinkCount <= _maxBlinkRepetitions)
+        {
+            _timePassed += Time.deltaTime;
+            if (_timePassed > _blinkInterval)
+            {
+
+                if (_glowing)
+                {
+                    _glowing = false;
+                    foreach (Transform child in transform)
+                    {
+                        child.GetComponent<Key>().SetPressedState();
+                    }
+                }
+                else
+                {
+                    _glowing = true;
+                    _blinkCount++;
+                    foreach (Transform child in transform)
+                    {
+                        child.GetComponent<Key>().StartGlowing();
+                    }
+                }
+                _timePassed = 0;
+                if (_blinkCount > _maxBlinkRepetitions)
+                {
+                    foreach (Transform child in transform)
+                    {
+                        child.GetComponent<Key>().SetNormalState();
+                        child.GetComponent<Key>().AllowUsage();
+                    }
+                }
+            }
+        }
+
     }
 }

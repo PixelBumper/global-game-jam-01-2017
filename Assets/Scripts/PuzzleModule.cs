@@ -13,7 +13,7 @@ public abstract class PuzzleModule : MonoBehaviour
     /// <summary>
     /// Determines if the puzzle module is solved
     /// </summary>
-    private bool _isSolved;
+    protected bool _isSolved;
 
     /// <summary>
     /// called by the game state whenever the player finished a certain game progress

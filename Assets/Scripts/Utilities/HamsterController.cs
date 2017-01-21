@@ -7,6 +7,7 @@ public class HamsterController : MonoBehaviour
 
     private const string MoveEars = "MoveEars";
     private const string Blink = "Blink";
+    private const string DieTrigger = "Die";
 
     public float AnimationSecondsCooldownLower = 5f;
     public float AnimationSecondsCooldownHigher = 10f;
@@ -30,5 +31,10 @@ public class HamsterController : MonoBehaviour
 	        currentCooldown = Random.Range(AnimationSecondsCooldownLower, AnimationSecondsCooldownHigher);
 	    }
 	}
+
+    public void Explode()
+    {
+        Animator.SetTrigger(DieTrigger);
+    }
 
 }

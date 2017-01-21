@@ -175,14 +175,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 589142ffc3acc496c80ce6b2ba5f1188, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile2: {fileID: 0}
-  tile3: {fileID: 0}
-  tile4: {fileID: 0}
-  tile5: {fileID: 0}
-  tile6: {fileID: 0}
-  tile7: {fileID: 0}
-  tile8: {fileID: 0}
-  tile9: {fileID: 0}
+  tile2: {fileID: 568549800}
+  tile3: {fileID: 203058313}
+  tile4: {fileID: 1543977872}
+  tile5: {fileID: 445750872}
+  tile6: {fileID: 549798531}
+  tile7: {fileID: 2145655862}
+  tile8: {fileID: 442135521}
+  tile9: {fileID: 204426668}
 --- !u!1 &203058313
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +193,7 @@ GameObject:
   - component: {fileID: 203058314}
   - component: {fileID: 203058315}
   - component: {fileID: 203058316}
+  - component: {fileID: 203058317}
   m_Layer: 0
   m_Name: Tile3Sprite
   m_TagString: Untagged
@@ -260,6 +261,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &203058317
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 203058313}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &204426668
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,6 +285,7 @@ GameObject:
   - component: {fileID: 204426669}
   - component: {fileID: 204426670}
   - component: {fileID: 204426671}
+  - component: {fileID: 204426672}
   m_Layer: 0
   m_Name: Tile9Sprite
   m_TagString: Untagged
@@ -337,6 +353,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &204426672
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 204426668}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &442135521
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,6 +377,7 @@ GameObject:
   - component: {fileID: 442135522}
   - component: {fileID: 442135523}
   - component: {fileID: 442135524}
+  - component: {fileID: 442135525}
   m_Layer: 0
   m_Name: Tile8Sprite
   m_TagString: Untagged
@@ -414,6 +445,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &442135525
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 442135521}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &445750872
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,6 +469,7 @@ GameObject:
   - component: {fileID: 445750873}
   - component: {fileID: 445750874}
   - component: {fileID: 445750875}
+  - component: {fileID: 445750876}
   m_Layer: 0
   m_Name: Tile5Sprite
   m_TagString: Untagged
@@ -491,6 +537,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &445750876
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 445750872}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &549798531
 GameObject:
   m_ObjectHideFlags: 0
@@ -501,6 +561,7 @@ GameObject:
   - component: {fileID: 549798532}
   - component: {fileID: 549798533}
   - component: {fileID: 549798534}
+  - component: {fileID: 549798535}
   m_Layer: 0
   m_Name: Tile6Sprite
   m_TagString: Untagged
@@ -568,6 +629,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &549798535
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 549798531}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &568549800
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,6 +653,7 @@ GameObject:
   - component: {fileID: 568549801}
   - component: {fileID: 568549802}
   - component: {fileID: 568549803}
+  - component: {fileID: 568549804}
   m_Layer: 0
   m_Name: Tile2Sprite
   m_TagString: Untagged
@@ -645,6 +721,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &568549804
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 568549800}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &1057424148
 GameObject:
   m_ObjectHideFlags: 0
@@ -742,6 +832,7 @@ GameObject:
   - component: {fileID: 1543977873}
   - component: {fileID: 1543977874}
   - component: {fileID: 1543977875}
+  - component: {fileID: 1543977876}
   m_Layer: 0
   m_Name: Tile4Sprite
   m_TagString: Untagged
@@ -809,6 +900,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &1543977876
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1543977872}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.00000011920929, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}
 --- !u!1 &2007911111
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,6 +953,7 @@ GameObject:
   - component: {fileID: 2145655863}
   - component: {fileID: 2145655864}
   - component: {fileID: 2145655865}
+  - component: {fileID: 2145655866}
   m_Layer: 0
   m_Name: Tile7Sprite
   m_TagString: Untagged
@@ -915,3 +1021,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   logic: {fileID: 116705267}
+--- !u!61 &2145655866
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2145655862}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_Offset: {x: -0.00000011920929, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 2, y: 2}

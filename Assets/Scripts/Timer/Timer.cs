@@ -47,4 +47,10 @@ public class Timer : MonoBehaviour
         s1GameObject.GetComponent<SpriteRenderer>().sprite = sprites[seconds / 10];
         s2GameObject.GetComponent<SpriteRenderer>().sprite = sprites[seconds % 10];
     }
+
+    public void AddTimeInSeconds(int seconds)
+    {
+        CurrentTimeInSeconds += seconds;
+        // TODO: add animation here?
+    }
 }

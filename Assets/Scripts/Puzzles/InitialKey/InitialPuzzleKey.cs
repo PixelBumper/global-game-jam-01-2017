@@ -2,23 +2,36 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InitialPuzzleKey : PuzzleModule{
+public class InitialPuzzleKey : PuzzleModule
+{
 
-	// Use this for initialization
+    public GameObject key;
+
+    // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
-        throw new System.NotImplementedException();
+        if (GameProgress.TakenInitialPostIt.Equals(progress))
+        {
+            MakeMeInteractable();
+        }
     }
 
     public override void OnBecomeInteractable()
     {
-        throw new System.NotImplementedException();
+    }
+
+    private void Start()
+    {
+        MakeMeInteractable(); // TODO: Remove this when initial post it is done
     }
 
     private void OnMouseUpAsButton()
     {
-
-        GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.LightUpColorMixPanel);
+        Debug.Log("HAHAHAHAHA");
+        key.SetActive(false);
+        var globalGameState = GameState.GetGlobalGameState();
+        globalGameState.PickInventoryItem(GameInventory.InitialKey);
+        globalGameState.UnlockGameProgress(GameProgress.LightUpColorMixPanel);
         MarkAsSolved();
     }
 }

@@ -54,4 +54,19 @@ public abstract class PuzzleModule : MonoBehaviour
     {
         return _isSolved;
     }
+
+    private void Awake()
+    {
+        // Disable the puzzle
+        gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+    }
+
+
+    /// <summary>
+    /// Makes this puzzle interactable again
+    /// </summary>
+    public void MakeMeInteractable()
+    {
+        gameObject.layer = LayerMask.NameToLayer("Default");
+    }
 }

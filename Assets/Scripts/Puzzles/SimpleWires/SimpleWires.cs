@@ -2,8 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleWires : MonoBehaviour {
+public class SimpleWires : PuzzleModule {
     // Use this for initialization
+    public override void OnPlayerProgress(GameProgress progress)
+    {
+
+    }
+
+    public override void OnBecomeInteractable()
+    {
+
+    }
+
     void Start()
     {
     }
@@ -29,4 +39,6 @@ public class SimpleWires : MonoBehaviour {
             }
         }
     }
+
+
 }

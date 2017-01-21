@@ -1,4 +1,5 @@
-﻿using UnityEngine;/// <summary>
+﻿using System;
+using UnityEngine;/// <summary>
 /// Interface to implemented by the puzzle module behaviours
 /// </summary>
 public abstract class PuzzleModule : MonoBehaviour
@@ -20,11 +21,6 @@ public abstract class PuzzleModule : MonoBehaviour
     /// </summary>
     /// <param name="progress">the game progress</param>
     public abstract void OnPlayerProgress(GameProgress progress);
-
-    /// <summary>
-    /// Called when the module becomes interactable
-    /// </summary>
-    public abstract void OnBecomeInteractable();
 
     public abstract GameProgress OwnGameProgressName { get; }
 
@@ -55,6 +51,11 @@ public abstract class PuzzleModule : MonoBehaviour
     protected void MarkAsFailed()
     {
         GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
+    }
+
+    protected bool AmIHolding(GameInventory gameInventory)
+    {
+        return GameState.GetGlobalGameState().HeldInventoryItem == gameInventory;
     }
 
     private void Awake()

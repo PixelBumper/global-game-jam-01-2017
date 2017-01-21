@@ -6,24 +6,18 @@ using UnityEngine;
 
 public class PasswordPuzzle : PuzzleModule
 {
-
     public int riddleCode;
 
     private String digitsToType;
 
-	// Use this for initialization
+    // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (progress == GameProgress.TakenEnigmaPostIt)
         {
-            digitsToType = riddleCode+"";
+            digitsToType = riddleCode + "";
             // make interacteble
         }
-    }
-
-    public override void OnBecomeInteractable()
-    {
-        throw new System.NotImplementedException();
     }
 
     public override GameProgress OwnGameProgressName
@@ -33,24 +27,37 @@ public class PasswordPuzzle : PuzzleModule
 
     void PressedKey(String key)
     {
-        Debug.LogError("result: "+ key);
+        Debug.LogError("result: " + key);
         int result;
-        if (int.TryParse(key, out result))
+
+
+        if (int.TryParse(key, out result) == false || key[0] != digitsToType[0])
         {
-//            digitsToType
+            Debug.LogError("Hamster dead");
+            MarkAsFailed();
         }
         else
         {
-            MarkAsFailed();
+            digitsToType = digitsToType.Substring(1);
+            if (digitsToType.Length == 0)
+            {
+                //blink ui to notice that the riddle has been solved
+                //move to next riddle
+
+
+                Debug.LogError("password riddle solved");
+                GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.ResolvedEnigmaPuzzle);
+            }
         }
     }
 
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+    }
 }

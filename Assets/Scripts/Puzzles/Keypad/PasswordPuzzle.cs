@@ -48,7 +48,6 @@ public class PasswordPuzzle : PuzzleModule
 
             if (int.TryParse(key, out result) == false || key[0] != _digitsToType[0])
             {
-                Debug.LogError("Hamster dead");
                 MarkAsFailed();
             }
             else
@@ -56,7 +55,6 @@ public class PasswordPuzzle : PuzzleModule
                 _digitsToType = _digitsToType.Substring(1);
                 if (_digitsToType.Length == 0)
                 {
-                    Debug.LogError("password riddle solved");
                     //blink ui to notice that the riddle has been solved
                     foreach (Transform child in transform)
                     {

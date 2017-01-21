@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SimpleWiresRedScript : MonoBehaviour {
+public class InitialPuzzleLock : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {

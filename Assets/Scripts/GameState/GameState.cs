@@ -10,6 +10,9 @@ public class GameState : MonoBehaviour
     public List<GameProgress> PlayerProgress;
     public GameInventory HeldInventoryItem;
 
+    public GameInventoryHolder InventoryHolder;
+
+
     // Use this for initialization
     void Start()
     {
@@ -47,6 +50,12 @@ public class GameState : MonoBehaviour
                 puzzleModuleBehaviour.OnPlayerProgress(progress);
             }
         }
+    }
+
+    public void PickInventoryItem(GameInventory gameItem)
+    {
+        CurrentInventory.Add(gameItem);
+        InventoryHolder.PickedItem(gameItem);
     }
 
     /// <summary>

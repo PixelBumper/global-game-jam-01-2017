@@ -1,16 +1,17 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 // Global game state GO
 public class GameState : MonoBehaviour
 {
-    public double SecondsRemaining;
+    public float StartingTimeInSeconds = 30f;
     public List<GameInventory> CurrentInventory = new List<GameInventory>();
     public List<GameProgress> PlayerProgress = new List<GameProgress>();
     public GameInventory HeldInventoryItem = GameInventory.None;
 
     public GameInventoryHolder InventoryHolder;
+
+    private float CurrentTimeInSeconds;
 
     // Use this for initialization
     void Start()
@@ -24,6 +25,30 @@ public class GameState : MonoBehaviour
         {
             NotifyListenersAboutProgress(progress);
         }
+
+        CurrentTimeInSeconds = StartingTimeInSeconds;
+    }
+
+    void Update()
+    {
+        CurrentTimeInSeconds -= Time.deltaTime;
+
+        var timer = GameObject.FindGameObjectWithTag("Timer");
+
+        if (timer != null)
+        {
+            timer.GetComponent<Timer>().UpdateTime((int) CurrentTimeInSeconds);
+        }
+
+        if (CurrentTimeInSeconds <= 10)
+        {
+            // TODO: play sound
+        }
+
+        if (CurrentTimeInSeconds <= 0)
+        {
+            GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
+        }
     }
 
     /// <summary>
@@ -35,13 +60,9 @@ public class GameState : MonoBehaviour
         return GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
     }
 
-    /// <summary>
-    /// Gets the timer
-    /// </summary>
-    /// <returns></returns>
-    public static Timer GetTimer()
+    public static void AddTimeInSeconds(int seconds)
     {
-        return GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer>();
+        GetGlobalGameState().CurrentTimeInSeconds += seconds;
     }
 
     /// <summary>
@@ -75,6 +96,12 @@ public class GameState : MonoBehaviour
     {
         CurrentInventory.Add(gameItem);
         InventoryHolder.PickedItem(gameItem);
+    }
+
+    public void DropInventoryItem(GameInventory gameItem)
+    {
+        CurrentInventory.Remove(gameItem);
+        InventoryHolder.DropItem(gameItem);
     }
 
     /// <summary>

@@ -4,4 +4,5 @@ public enum GameInventory
     None,
     Screwdriver,
     Scissors,
+    InitialKey,
 }

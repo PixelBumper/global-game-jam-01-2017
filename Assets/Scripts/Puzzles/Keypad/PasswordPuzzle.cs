@@ -46,6 +46,7 @@ public class PasswordPuzzle : PuzzleModule
 
             if (int.TryParse(key, out result) == false || key[0] != _digitsToType[0])
             {
+                DisableKeypad();
                 MarkAsFailed();
             }
             else

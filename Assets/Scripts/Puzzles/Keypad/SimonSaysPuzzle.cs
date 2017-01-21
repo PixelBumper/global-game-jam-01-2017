@@ -107,6 +107,7 @@ public class SimonSaysPuzzle : PuzzleModule
 
             if (int.TryParse(key, out result) == false || result != _sequence[_lastCorrectKeyPosition])
             {
+                DisableKeypad();
                 MarkAsFailed();
             }
             else
@@ -131,6 +132,14 @@ public class SimonSaysPuzzle : PuzzleModule
                     MarkAsSolved();
                 }
             }
+        }
+    }
+
+    void DisableKeypad()
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Key>().DisallowUsage();
         }
     }
 

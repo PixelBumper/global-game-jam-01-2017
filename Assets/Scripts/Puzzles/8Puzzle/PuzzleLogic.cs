@@ -7,12 +7,18 @@ public class PuzzleLogic : PuzzleModule {
 
 	/**
 	 * Order of tiles:
-	 * 7 8 9
+	 * 1 2 3
 	 * 4 5 6
-	 *   2 3
+	 * 7 8 X
+	 * 
+	 * Board indices
+	 * 6 7 8
+	 * 3 4 5
+	 * 0 1 2
 	 */
 
 	public GameObject emptyTile;
+	public GameObject tile1;
 	public GameObject tile2;
 	public GameObject tile3;
 	public GameObject tile4;
@@ -20,25 +26,25 @@ public class PuzzleLogic : PuzzleModule {
 	public GameObject tile6;
 	public GameObject tile7;
 	public GameObject tile8;
-	public GameObject tile9;
 
 	private static float TILE_SWAP_SPEED = 0.42f;
 	private static int DIMENSIONS = 3;
 	private static int NUM_RANDOM_TILE_MOVEMENTS = 20;
 	private GameObject[] board = new GameObject[DIMENSIONS*DIMENSIONS];
 	private GameObject[] originalBoard = new GameObject[DIMENSIONS*DIMENSIONS];
+	private bool inputEnabled = true;
 
 	void Start () {
 		//init board
-		originalBoard [0] = emptyTile;
-		originalBoard [1] = tile2;
-		originalBoard [2] = tile3;
+		originalBoard [0] = tile7;
+		originalBoard [1] = tile8;
+		originalBoard [2] = emptyTile;
 		originalBoard [3] = tile4;
 		originalBoard [4] = tile5;
 		originalBoard [5] = tile6;
-		originalBoard [6] = tile7;
-		originalBoard [7] = tile8;
-		originalBoard [8] = tile9;
+		originalBoard [6] = tile1;
+		originalBoard [7] = tile2;
+		originalBoard [8] = tile3;
 
 		Array.Copy (originalBoard, board, originalBoard.Length);
 		PerformRandomMovements (NUM_RANDOM_TILE_MOVEMENTS);
@@ -135,13 +141,17 @@ public class PuzzleLogic : PuzzleModule {
 	}
 
 	public void OnTileClicked(GameObject tile) {
-		int indexOfTile = Array.IndexOf (board, tile);
-		int indexOfFreeTile = GetIndexOfFreeAdjacentTile (indexOfTile);
-		if (indexOfFreeTile >= 0) {
-			Debug.Log ("Free tile available from index " + indexOfTile + ": " + indexOfFreeTile);
-			swapTiles (indexOfTile, indexOfFreeTile);
+		if (inputEnabled) {
+			int indexOfTile = Array.IndexOf (board, tile);
+			int indexOfFreeTile = GetIndexOfFreeAdjacentTile (indexOfTile);
+			if (indexOfFreeTile >= 0) {
+				Debug.Log ("Free tile available from index " + indexOfTile + ": " + indexOfFreeTile);
+				swapTiles (indexOfTile, indexOfFreeTile);
+			} else {
+				Debug.Log ("No free tile available from index " + indexOfTile);
+			}			
 		} else {
-			Debug.Log ("No free tile available from index " + indexOfTile);
+			Debug.Log ("Input disabled");
 		}
 	}
 
@@ -149,6 +159,8 @@ public class PuzzleLogic : PuzzleModule {
 		if (board [emptyTileIndex] != emptyTile) {
 			throw new Exception ("Cannot swap tile at index " + tileIndexToSwap + " with non-empty tile at index.");
 		}
+		//disable input while swap in progress
+		inputEnabled = false;
 		//swap tiles in model
 		GameObject tileToSwap = board [tileIndexToSwap];
 		board [tileIndexToSwap] = emptyTile;
@@ -156,7 +168,23 @@ public class PuzzleLogic : PuzzleModule {
 
 		//swap tiles on screen
 		Vector3 oldTilePosition = tileToSwap.transform.position;
-		LeanTween.move(tileToSwap, emptyTile.transform.position, TILE_SWAP_SPEED).setEaseInOutQuad();
+		LeanTween.move(tileToSwap, emptyTile.transform.position, TILE_SWAP_SPEED)
+			.setEaseInOutQuad()
+			.setOnComplete(() => {
+				inputEnabled = true;
+				checkSolved();
+			});
 		emptyTile.transform.position = oldTilePosition;
+	}
+
+	private void checkSolved() {
+		for (int i = 0; i < originalBoard.Length; i++) {
+			if (board [i] != originalBoard [i]) {
+				return;
+			}
+		}
+		Debug.Log("8Puzzle has been solved! Great Success!");
+		inputEnabled = false;
+		MarkAsSolved ();
 	}
 }

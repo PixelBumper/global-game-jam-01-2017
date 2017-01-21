@@ -20,6 +20,11 @@ public class InitialPuzzleKey : PuzzleModule
     {
     }
 
+    public override GameProgress OwnGameProgressName
+    {
+        get { return GameProgress.LightUpColorMixPanel; }
+    }
+
     private void Start()
     {
         MakeMeInteractable(); // TODO: Remove this when initial post it is done
@@ -30,7 +35,6 @@ public class InitialPuzzleKey : PuzzleModule
         key.SetActive(false);
         var globalGameState = GameState.GetGlobalGameState();
         globalGameState.PickInventoryItem(GameInventory.InitialKey);
-        globalGameState.UnlockGameProgress(GameProgress.LightUpColorMixPanel);
         MarkAsSolved();
     }
 }

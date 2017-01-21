@@ -26,6 +26,8 @@ public abstract class PuzzleModule : MonoBehaviour
     /// </summary>
     public abstract void OnBecomeInteractable();
 
+    public abstract GameProgress OwnGameProgressName { get; }
+
     /// <summary>
     /// Unity initializer
     /// </summary>
@@ -40,6 +42,7 @@ public abstract class PuzzleModule : MonoBehaviour
     protected void MarkAsSolved()
     {
         _isSolved = true;
+        GameState.GetGlobalGameState().UnlockGameProgress(OwnGameProgressName);
         if (OnPuzzleSolved != null)
         {
             OnPuzzleSolved(this);
@@ -47,12 +50,11 @@ public abstract class PuzzleModule : MonoBehaviour
     }
 
     /// <summary>
-    /// Checks if the puzzle is solved, manual property because of unity serialization issues
+    /// Mark this puzzle as failed
     /// </summary>
-    /// <returns></returns>
-    public bool IsSolved()
+    protected void MarkAsFailed()
     {
-        return _isSolved;
+        GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
     }
 
     private void Awake()

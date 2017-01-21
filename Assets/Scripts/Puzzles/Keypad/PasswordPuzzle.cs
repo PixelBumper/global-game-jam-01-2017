@@ -20,9 +20,9 @@ public class PasswordPuzzle : PuzzleModule
         }
     }
 
-    public override void OnBecomeInteractable()
+    public override GameProgress OwnGameProgressName
     {
-        throw new System.NotImplementedException();
+        get { return GameProgress.ResolvedSimpleWiresPuzzle; } // TODO: still needs something
     }
 
     void PressedKey(String key)
@@ -34,7 +34,7 @@ public class PasswordPuzzle : PuzzleModule
         if (int.TryParse(key, out result) == false || key[0] != digitsToType[0])
         {
             Debug.LogError("Hamster dead");
-            GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
+            MarkAsFailed();
         }
         else
         {
@@ -43,7 +43,7 @@ public class PasswordPuzzle : PuzzleModule
             {
                 //blink ui to notice that the riddle has been solved
                 //move to next riddle
-                
+
 
                 Debug.LogError("password riddle solved");
                 GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.ResolvedEnigmaPuzzle);

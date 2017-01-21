@@ -17,11 +17,12 @@ public class TileHandler : PuzzleModule {
 		// do nothing
 	}
 
-	public override void OnBecomeInteractable()
-	{
-	}
+    public override GameProgress OwnGameProgressName
+    {
+        get { return GameProgress.LightUpColorMixPanel; }
+    }
 
-	private void Awake()
+    private void Awake()
 	{
 	}
 
@@ -48,7 +49,6 @@ public class TileHandler : PuzzleModule {
 	private void OnMouseUpAsButton()
 	{
 		_delta = 0.0f;
-		GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.LightUpColorMixPanel);
 		MarkAsSolved();
 	}
 }

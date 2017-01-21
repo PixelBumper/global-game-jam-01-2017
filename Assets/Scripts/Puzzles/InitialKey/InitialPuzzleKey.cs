@@ -16,8 +16,9 @@ public class InitialPuzzleKey : PuzzleModule
         }
     }
 
-    public override void OnBecomeInteractable()
+    public override GameProgress OwnGameProgressName
     {
+        get { return GameProgress.LightUpColorMixPanel; }
     }
 
     private void Start()
@@ -27,11 +28,9 @@ public class InitialPuzzleKey : PuzzleModule
 
     private void OnMouseUpAsButton()
     {
-        Debug.Log("HAHAHAHAHA");
         key.SetActive(false);
         var globalGameState = GameState.GetGlobalGameState();
         globalGameState.PickInventoryItem(GameInventory.InitialKey);
-        globalGameState.UnlockGameProgress(GameProgress.LightUpColorMixPanel);
         MarkAsSolved();
     }
 }

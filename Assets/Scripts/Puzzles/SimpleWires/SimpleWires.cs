@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SimpleWires : PuzzleModule
 {
-
     public GameObject wireYellow;
     public GameObject wireRed;
     public GameObject wireBlue;
@@ -15,7 +14,8 @@ public class SimpleWires : PuzzleModule
     public GameObject wireGreenCut;
     public List<SimpleWireType> wireSequence;
 
-    private readonly Dictionary<SimpleWireType, Tuple<GameObject, GameObject>> _wires = new Dictionary<SimpleWireType, Tuple<GameObject, GameObject>>();
+    private readonly Dictionary<SimpleWireType, Tuple<GameObject, GameObject>> _wires =
+        new Dictionary<SimpleWireType, Tuple<GameObject, GameObject>>();
 
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
@@ -42,7 +42,9 @@ public class SimpleWires : PuzzleModule
 
     public void OnWireClick(SimpleWireType simpleWireType)
     {
-        if (wireSequence[0] == simpleWireType)
+        if (!AmIHolding(GameInventory.Scissors)) return;
+
+        if (wireSequence.Count > 0 && wireSequence[0] == simpleWireType)
         {
             _wires[simpleWireType].First.SetActive(false);
             _wires[simpleWireType].Second.SetActive(true);

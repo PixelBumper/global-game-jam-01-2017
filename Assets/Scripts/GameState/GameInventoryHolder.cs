@@ -7,7 +7,6 @@ public class GameInventoryHolder : MonoBehaviour
     public List<GameInventory> itemsThatWeCanHold;
     public List<GameObject> inventory;
 
-
     private void Start()
     {
         foreach (var objectItem in inventory)
@@ -20,5 +19,11 @@ public class GameInventoryHolder : MonoBehaviour
     {
         var itemIndex = itemsThatWeCanHold.IndexOf(gameItem);
         inventory[itemIndex].SetActive(true);
+    }
+
+    public void DropItem(GameInventory gameItem)
+    {
+        var itemIndex = itemsThatWeCanHold.IndexOf(gameItem);
+        inventory[itemIndex].SetActive(false);
     }
 }

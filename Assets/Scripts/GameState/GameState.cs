@@ -6,19 +6,24 @@ using UnityEngine;
 public class GameState : MonoBehaviour
 {
     public double SecondsRemaining;
-    public List<GameInventory> CurrentInventory;
-    public List<GameProgress> PlayerProgress;
-    public GameInventory HeldInventoryItem;
+    public List<GameInventory> CurrentInventory = new List<GameInventory>();
+    public List<GameProgress> PlayerProgress = new List<GameProgress>();
+    public GameInventory HeldInventoryItem = GameInventory.None;
 
     public GameInventoryHolder InventoryHolder;
-
 
     // Use this for initialization
     void Start()
     {
-        CurrentInventory = new List<GameInventory> {GameInventory.None};
-        HeldInventoryItem = GameInventory.None;
-        PlayerProgress = new List<GameProgress>();
+        if (!CurrentInventory.Contains(GameInventory.None))
+        {
+            CurrentInventory.Add(GameInventory.None);
+        }
+
+        foreach (var progress in PlayerProgress)
+        {
+            NotifyListenersAboutProgress(progress);
+        }
     }
 
     /// <summary>
@@ -42,6 +47,11 @@ public class GameState : MonoBehaviour
         }
 
         PlayerProgress.Add(progress);
+        NotifyListenersAboutProgress(progress);
+    }
+
+    private static void NotifyListenersAboutProgress(GameProgress progress)
+    {
         foreach (var puzzleModule in GameObject.FindGameObjectsWithTag("PuzzleModule"))
         {
             var puzzleModuleBehaviour = puzzleModule.GetComponent<PuzzleModule>();

@@ -26,6 +26,11 @@ public class PasswordPuzzle : PuzzleModule
         throw new System.NotImplementedException();
     }
 
+    public override GameProgress OwnGameProgressName
+    {
+        get { return GameProgress.ResolvedSimpleWiresPuzzle; } // TODO: still needs something
+    }
+
     void PressedKey(String key)
     {
         Debug.LogError("result: "+ key);

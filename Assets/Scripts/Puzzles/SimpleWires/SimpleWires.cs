@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SimpleWires : PuzzleModule
 {
+
     public GameObject wireYellow;
     public GameObject wireRed;
     public GameObject wireBlue;
@@ -23,6 +24,11 @@ public class SimpleWires : PuzzleModule
 
     public override void OnBecomeInteractable()
     {
+    }
+
+    public override GameProgress OwnGameProgressName
+    {
+        get { return GameProgress.ResolvedSimpleWiresPuzzle; }
     }
 
     private void Start()
@@ -49,13 +55,12 @@ public class SimpleWires : PuzzleModule
 
             if (wireSequence.Count == 0)
             {
-                GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.ResolvedSimpleWiresPuzzle);
                 MarkAsSolved();
             }
         }
         else
         {
-            GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
+            MarkAsFailed();
         }
     }
 }

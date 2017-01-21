@@ -26,6 +26,8 @@ public abstract class PuzzleModule : MonoBehaviour
     /// </summary>
     public abstract void OnBecomeInteractable();
 
+    public abstract GameProgress OwnGameProgressName { get; }
+
     /// <summary>
     /// Unity initializer
     /// </summary>
@@ -40,10 +42,19 @@ public abstract class PuzzleModule : MonoBehaviour
     protected void MarkAsSolved()
     {
         _isSolved = true;
+        GameState.GetGlobalGameState().UnlockGameProgress(OwnGameProgressName);
         if (OnPuzzleSolved != null)
         {
             OnPuzzleSolved(this);
         }
+    }
+
+    /// <summary>
+    /// Mark this puzzle as failed
+    /// </summary>
+    protected void MarkAsFailed()
+    {
+        GameState.GetGlobalGameState().UnlockGameProgress(GameProgress.HamsterExplode);
     }
 
     /// <summary>

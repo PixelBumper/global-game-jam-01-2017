@@ -8,6 +8,7 @@ public enum GameProgress
     OpenedChain,
     TakenEnigmaPostIt,
     ResolvedEnigmaPuzzle,
+    ResolvedScrewdriverPuzzle,
     RemovedSlidingPuzzlePanelBolts,
     RemovedSlidingPuzzlePanel,
     ResolvedSlidingPuzzle,

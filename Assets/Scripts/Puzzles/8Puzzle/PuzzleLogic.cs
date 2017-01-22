@@ -52,13 +52,17 @@ public class PuzzleLogic : PuzzleModule {
 	}
 
 	private void PerformRandomMovements(int numMovements) {
+		int previousEmptyTileIndex = -1;
 		for (int i = 0; i < numMovements; i++) {
 			//select random adjacent tile from empty tile
 			int emptyTileIndex = Array.IndexOf (board, emptyTile);
 			List<int> adjacentTiles = GetAdjacentTileIndices (emptyTileIndex);
+			adjacentTiles.Remove (previousEmptyTileIndex);
 			int randomIndex = UnityEngine.Random.Range(0, adjacentTiles.Count);
 			int randomTileIndex = adjacentTiles [randomIndex];
+			previousEmptyTileIndex = emptyTileIndex;
 			//swap tile with empty tile
+			Debug.Log("Random movement " + i + "/" + numMovements + ": " + emptyTileIndex + " to " + randomTileIndex);
 			GameObject temp = board[emptyTileIndex];
 			board [emptyTileIndex] = board [randomTileIndex];
 			board [randomTileIndex] = temp;

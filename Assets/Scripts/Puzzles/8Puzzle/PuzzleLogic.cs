@@ -29,7 +29,7 @@ public class PuzzleLogic : PuzzleModule {
 
 	private static float TILE_SWAP_SPEED = 0.42f;
 	private static int DIMENSIONS = 3;
-	private static int NUM_RANDOM_TILE_MOVEMENTS = 20;
+	public int NUM_RANDOM_TILE_MOVEMENTS = 6;
 	private GameObject[] board = new GameObject[DIMENSIONS*DIMENSIONS];
 	private GameObject[] originalBoard = new GameObject[DIMENSIONS*DIMENSIONS];
 	private bool inputEnabled = true;
@@ -125,7 +125,7 @@ public class PuzzleLogic : PuzzleModule {
 	private float _delta = 0.01f;
 
 	public void OnTileClicked(GameObject tile) {
-		if (inputEnabled) {
+		if (inputEnabled & AmIHolding(GameInventory.None)) {
 			int indexOfTile = Array.IndexOf (board, tile);
 			int indexOfFreeTile = GetIndexOfFreeAdjacentTile (indexOfTile);
 			if (indexOfFreeTile >= 0) {

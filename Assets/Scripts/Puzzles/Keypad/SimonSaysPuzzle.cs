@@ -64,7 +64,7 @@ public class SimonSaysPuzzle : PuzzleModule
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
-        if (progress == GameProgress.ResolvedEnigmaPuzzle)
+        if (progress == GameProgress.ResolvedSimpleWiresPuzzle)
         {
             _sequence = new List<int>();
             for (int i = 0; i <= 1; i++)

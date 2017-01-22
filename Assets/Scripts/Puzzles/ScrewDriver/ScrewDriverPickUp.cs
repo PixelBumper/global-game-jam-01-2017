@@ -3,19 +3,15 @@
 public class ScrewDriverPickUp : PuzzleModule
 {
     public GameObject screwDriver;
+    public GameObject LockingPanel;
 
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (GameProgress.ResolvedEnigmaPuzzle.Equals(progress))
         {
             MakeMeInteractable();
-            screwDriver.SetActive(true);
+            LeanTween.alpha(LockingPanel, 0f, 0.5f).setOnComplete(() => LockingPanel.SetActive(false));
         }
-    }
-
-    public void Start()
-    {
-        screwDriver.SetActive(false);
     }
 
     public override GameProgress OwnGameProgressName

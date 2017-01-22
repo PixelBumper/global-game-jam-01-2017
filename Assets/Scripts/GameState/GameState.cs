@@ -89,35 +89,48 @@ public class GameState : MonoBehaviour
         PlayerProgress.Add(progress);
         if (GameProgress.HamsterExplode.Equals(progress))
         {
-            foreach (var objectToDisable in ObjectsToDisable)
-            {
-                objectToDisable.SetActive(false);
-            }
-            MicrowaveFront.SetActive(true);
-            HamsterController.Explode();
-            CurrentTimeInSeconds = 0;
-            // TODO: play sound
-
-            LeanTween.delayedCall(3.5f, () =>
-            {
-                LooseMessage.SetActive(true);
-                LeanTween.alpha(LooseMessage, 1, 1);
-            });
+            EndGameLost();
         }
         else if (GameProgress.HamsterRescued.Equals(progress))
         {
-            CurrentTimeInSeconds = 999;
-            foreach (var objectToDisable in ObjectsToDisable)
-            {
-                objectToDisable.SetActive(false);
-            }
-            WinMessage.SetActive(true);
-            LeanTween.alpha(WinMessage, 1, 1);
+            EndGameWin();
         }
         else
         {
             NotifyListenersAboutProgress(progress);
         }
+    }
+
+    private void EndGameWin()
+    {
+        CurrentTimeInSeconds = 999;
+        foreach (var objectToDisable in ObjectsToDisable)
+        {
+            objectToDisable.SetActive(false);
+        }
+        WinMessage.SetActive(true);
+        LeanTween.alpha(WinMessage, 1, 1);
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+    }
+
+    private void EndGameLost()
+    {
+        foreach (var objectToDisable in ObjectsToDisable)
+        {
+            objectToDisable.SetActive(false);
+        }
+        MicrowaveFront.SetActive(true);
+        HamsterController.Explode();
+        CurrentTimeInSeconds = 0;
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+
+        // TODO: play sound
+
+        LeanTween.delayedCall(3.5f, () =>
+        {
+            LooseMessage.SetActive(true);
+            LeanTween.alpha(LooseMessage, 1, 1);
+        });
     }
 
     private void NotifyListenersAboutProgress(GameProgress progress)

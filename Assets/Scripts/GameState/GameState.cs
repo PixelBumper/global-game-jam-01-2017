@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour
     public GameInventoryHolder InventoryHolder;
     public HamsterController HamsterController;
     public GameObject MicrowaveFront;
+    public GameObject MicrowaveBack;
     public Texture2D KeyCursorTexture;
     public Texture2D ScissorCursorTexture;
     public Texture2D ScrewDriverCursorTexture;
@@ -91,6 +92,8 @@ public class GameState : MonoBehaviour
             }
             MicrowaveFront.SetActive(true);
             HamsterController.Explode();
+            CurrentTimeInSeconds = 0;
+            // TODO: play sound
         }
         else
         {
@@ -98,16 +101,25 @@ public class GameState : MonoBehaviour
         }
     }
 
-    private static void NotifyListenersAboutProgress(GameProgress progress)
+    private void NotifyListenersAboutProgress(GameProgress progress)
     {
+        // temporarily activate all sides, the GameJam Unity (R) way of finding all objects :-)
+        var frontActive = MicrowaveFront.activeSelf;
+        var backActive = MicrowaveBack.activeSelf;
+
+        MicrowaveFront.SetActive(true);
+        MicrowaveBack.SetActive(true);
+
         foreach (var puzzleModule in GameObject.FindGameObjectsWithTag("PuzzleModule"))
         {
-            var puzzleModuleBehaviour = puzzleModule.GetComponent<PuzzleModule>();
-            if (puzzleModuleBehaviour != null)
+            foreach (var puzzleModuleBehaviour in puzzleModule.GetComponents<PuzzleModule>())
             {
                 puzzleModuleBehaviour.OnPlayerProgress(progress);
             }
         }
+
+        MicrowaveFront.SetActive(frontActive);
+        MicrowaveBack.SetActive(backActive);
     }
 
     public void PickInventoryItem(GameInventory gameItem)

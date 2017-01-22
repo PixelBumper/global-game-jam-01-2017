@@ -21,15 +21,14 @@ public class PasswordPuzzle : PuzzleModule
 
     private bool _glowing = true;
 
-
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (progress == GameProgress.TakenEnigmaPostIt)
         {
             _digitsToType = RiddleCode + "";
+            MakeMeInteractable();
             EnableKeypad();
-            // make interacteble
         }
     }
 
@@ -69,7 +68,6 @@ public class PasswordPuzzle : PuzzleModule
     void Start()
     {
         DisableKeypad();
-//        OnPlayerProgress(GameProgress.TakenEnigmaPostIt);
     }
 
     void DisableKeypad()

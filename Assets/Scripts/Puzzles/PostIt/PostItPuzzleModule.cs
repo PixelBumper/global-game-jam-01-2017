@@ -25,13 +25,10 @@ public class PostItPuzzleModule : PuzzleModule
         get { return _gameProgressName; }
     }
 
-    void Awake()
-    {
-        _spriteRenderer = PostItSprite.GetComponent<SpriteRenderer>();
-    }
-
     void Start()
     {
+        _spriteRenderer = PostItSprite.GetComponent<SpriteRenderer>();
+
         // generate puzzle solution for followup puzzle
         switch (PostItMode)
         {
@@ -66,6 +63,7 @@ public class PostItPuzzleModule : PuzzleModule
         var configuration = PuzzleConfigurationObjects[0].GetComponent<InitialPostItConfiguration>();
         _spriteRenderer.sprite = configuration.PostItSprite;
         _gameProgressName = GameProgress.TakenInitialPostIt;
+        MakeMeInteractable();
     }
 
     private void CreateSimpleWiresPostIt()

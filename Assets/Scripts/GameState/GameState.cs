@@ -20,6 +20,11 @@ public class GameState : MonoBehaviour
     public List<GameObject> ObjectsToDisable;
     public GameObject WinMessage;
     public GameObject LooseMessage;
+    public Vector2 KeyCursorHotspot;
+    public Vector2 ScissorCursorHotspot;
+    public Vector2 ScrewDriverCursorHotspot;
+
+    public GameObject ExtraTime;
 
     private float CurrentTimeInSeconds;
 
@@ -70,9 +75,20 @@ public class GameState : MonoBehaviour
         return GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
     }
 
-    public static void AddTimeInSeconds(int seconds)
+    public void AddTimeInSeconds(int seconds, GameObject origin)
     {
-        GetGlobalGameState().CurrentTimeInSeconds += seconds;
+        CurrentTimeInSeconds += seconds;
+
+        var newExtraTime = Instantiate(ExtraTime, gameObject.transform);
+        var positionOrigin = origin.transform.position;
+        newExtraTime.transform.position = new Vector3(positionOrigin.x, positionOrigin.y, -2.5f);
+        newExtraTime.transform.localScale = new Vector3(2f, 2f, 1f);
+        var floatingTime = newExtraTime.GetComponent<FloatingTime>();
+        if (floatingTime)
+        {
+            floatingTime.SetValueAndFloat(seconds);
+        }
+
     }
 
     /// <summary>

@@ -8,12 +8,24 @@ public class OpenButtonPuzzle : PuzzleModule
     public bool CanBeOpened;
     public Animator animator;
 
+    public List<GameObject> OpenAssets;
+    public List<GameObject> ClosedAsssets;
+
 	// Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (GameProgress.ResolvedLeversPuzzle.Equals(progress))
         {
             CanBeOpened = true;
+            foreach (var openAsset in OpenAssets)
+            {
+                openAsset.SetActive(true);
+            }
+
+            foreach (var closedAssset in ClosedAsssets)
+            {
+                closedAssset.SetActive(false);
+            }
         }
     }
 

@@ -27,7 +27,6 @@ public class OpenButtonPuzzle : PuzzleModule
 
     private void OnMouseUpAsButton()
     {
-        var globalGameState = GameState.GetGlobalGameState();
         if (CanBeOpened)
         {
             MarkAsSolved();

@@ -1,12 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class InitialPuzzleLock : PuzzleModule
 {
     public List<GameObject> chains;
+    public GameObject lockToBeOpened;
 
-    // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (GameProgress.TakenInitialPostIt.Equals(progress))
@@ -35,6 +34,8 @@ public class InitialPuzzleLock : PuzzleModule
             {
                 chain.SetActive(false);
             }
+
+            lockToBeOpened.SetActive(false);
             globalGameState.DropInventoryItem(GameInventory.InitialKey);
             globalGameState.HeldInventoryItem = GameInventory.None;
             MarkAsSolved();

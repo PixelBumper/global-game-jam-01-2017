@@ -127,6 +127,7 @@ public class GameState : MonoBehaviour
         }
         else
         {
+            _source.PlayOneShot(successSound);
             NotifyListenersAboutProgress(progress);
         }
     }

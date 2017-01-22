@@ -3762,10 +3762,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1123130256644396, guid: 8f8c6ddc40a0444679349d55ec133fab, type: 2}
-      propertyPath: m_TagString
-      value: PuzzleModule
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8f8c6ddc40a0444679349d55ec133fab, type: 2}
   m_IsPrefabParent: 0
@@ -5185,13 +5181,18 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: ObjectsToDisable.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5262,6 +5263,16 @@ Prefab:
       propertyPath: LooseMessage
       value: 
       objectReference: {fileID: 1128653448}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: BlackoutPanel
+      value: 
+      objectReference: {fileID: 186447715}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: ObjectsToDisable.Array.data[3]
+      value: 
+      objectReference: {fileID: 763387608}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
   m_IsPrefabParent: 0

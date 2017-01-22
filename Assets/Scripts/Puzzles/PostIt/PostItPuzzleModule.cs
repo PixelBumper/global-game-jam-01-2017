@@ -142,6 +142,7 @@ public class PostItPuzzleModule : PuzzleModule
         var scale = Math.Min(xScale, yScale) * 0.6f; // scale to 60% of fullscreen
 
         LeanTween.scale(gameObject, new Vector3(scale, scale, 1.0f), tweenTime).setEaseInOutQuad();
+        LeanTween.rotateLocal(gameObject, Vector3.zero, tweenTime).setEaseInOutQuad();
     }
 
     private void OnMouseUpAsButton()

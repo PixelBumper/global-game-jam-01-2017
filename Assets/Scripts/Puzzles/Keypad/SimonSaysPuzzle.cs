@@ -5,9 +5,20 @@ using Microwave;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-
+[RequireComponent(typeof(AudioSource))]
 public class SimonSaysPuzzle : PuzzleModule
 {
+
+    public AudioClip cSharp;
+
+    public AudioClip dSharp;
+
+    public AudioClip fSharp;
+
+    public AudioClip gSharp;
+
+
+
     private bool _active;
 
 
@@ -36,6 +47,8 @@ public class SimonSaysPuzzle : PuzzleModule
 
     private SimonSayStates _simonSayStates;
 
+    private AudioSource _source;
+
     public enum SimonSayStates
     {
         Disabled,
@@ -53,12 +66,13 @@ public class SimonSaysPuzzle : PuzzleModule
 
     void Start()
     {
+        _source = GetComponent<AudioSource>();
         _active = false;
         _simonSayStates = SimonSayStates.Disabled;
         _numberOfCorrectAnswers = 0;
         _lastCorrectKeyPosition = 0;
 
-//        OnPlayerProgress(GameProgress.ResolvedEnigmaPuzzle);
+//        OnPlayerProgress(GameProgress.ResolvedSimpleWiresPuzzle);
     }
 
     // Use this for initialization
@@ -75,6 +89,7 @@ public class SimonSaysPuzzle : PuzzleModule
             Shuffle(_sequence);
             _simonSayStates = SimonSayStates.ShowingSequenceKeyOff;
             _active = true;
+            EnableKeypad();
         }
     }
 
@@ -112,6 +127,7 @@ public class SimonSaysPuzzle : PuzzleModule
             }
             else
             {
+                PlaySimonSound(result);
 
                 _lastCorrectKeyPosition++;
                 if (_lastCorrectKeyPosition > _numberOfCorrectAnswers)
@@ -136,11 +152,41 @@ public class SimonSaysPuzzle : PuzzleModule
         }
     }
 
+    private void PlaySimonSound(int result)
+    {
+        if (result >= 0 && result <= 1)
+        {
+            _source.PlayOneShot(cSharp);
+        }
+        if (result >= 2 && result <= 4)
+        {
+            _source.PlayOneShot(dSharp);
+        }
+
+        if (result >= 5 && result <= 7)
+        {
+            _source.PlayOneShot(fSharp);
+        }
+
+        if (result >= 8 && result <= 9)
+        {
+            _source.PlayOneShot(gSharp);
+        }
+    }
+
     void DisableKeypad()
     {
         foreach (Transform child in transform)
         {
             child.GetComponent<Key>().DisallowUsage();
+        }
+    }
+
+    void EnableKeypad()
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Key>().AllowUsage();
         }
     }
 
@@ -174,6 +220,7 @@ public class SimonSaysPuzzle : PuzzleModule
                         else
                         {
                             GameObject.Find(_sequence[_nextButtonToGlow] + "").GetComponent<Key>().StartGlowing();
+                            PlaySimonSound(_sequence[_nextButtonToGlow]);
                             _simonSayStates = SimonSayStates.ShowingSequenceGlowingKey;
                         }
                         _timePassed = 0;

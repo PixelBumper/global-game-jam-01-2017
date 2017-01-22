@@ -23,6 +23,10 @@ public class GameState : MonoBehaviour
     public Vector2 KeyCursorHotspot;
     public Vector2 ScissorCursorHotspot;
     public Vector2 ScrewDriverCursorHotspot;
+    public GameObject BlackoutPanel;
+
+
+    public AudioClip backGroundMusic;
 
     public AudioClip successSound;
 
@@ -31,9 +35,13 @@ public class GameState : MonoBehaviour
 
     private float CurrentTimeInSeconds;
 
+    private AudioSource _source;
+
+
     // Use this for initialization
     void Start()
     {
+        _source = GetComponent<AudioSource>();
         if (!CurrentInventory.Contains(GameInventory.None))
         {
             CurrentInventory.Add(GameInventory.None);
@@ -45,6 +53,9 @@ public class GameState : MonoBehaviour
         }
 
         CurrentTimeInSeconds = StartingTimeInSeconds;
+        _source.clip = backGroundMusic;
+        _source.loop = true;
+        _source.Play();
     }
 
     void Update()
@@ -116,6 +127,7 @@ public class GameState : MonoBehaviour
         }
         else
         {
+            _source.PlayOneShot(successSound);
             NotifyListenersAboutProgress(progress);
         }
     }
@@ -131,6 +143,7 @@ public class GameState : MonoBehaviour
         LeanTween.alpha(WinMessage, 1, 1);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         HamsterController.gameObject.SetActive(false);
+        EnableBlackout(0.3f);
     }
 
     private void EndGameLost()
@@ -150,6 +163,7 @@ public class GameState : MonoBehaviour
         {
             LooseMessage.SetActive(true);
             LeanTween.alpha(LooseMessage, 1, 1);
+            EnableBlackout(0.3f);
         });
     }
 
@@ -194,5 +208,28 @@ public class GameState : MonoBehaviour
     public bool IsProgressCompleted(GameProgress progress)
     {
         return PlayerProgress.Contains(progress);
+    }
+
+    public void RemoveBlackout(float tweenTime)
+    {
+        if (BlackoutPanel != null)
+        {
+            LeanTween.alpha(BlackoutPanel, 0.0f, tweenTime)
+                .setOnComplete(() => BlackoutPanel.SetActive(false));
+        }
+    }
+
+    public void EnableBlackout(float tweenTime)
+    {
+        if (BlackoutPanel != null)
+        {
+            var blackoutRenderer = BlackoutPanel.GetComponent<SpriteRenderer>();
+            var blackoutColor = blackoutRenderer.color;
+            blackoutColor.a = 0.0f;
+            blackoutRenderer.color = blackoutColor;
+            LeanTween.alpha(BlackoutPanel, 0.7f, tweenTime);
+            BlackoutPanel.SetActive(true);
+        }
+
     }
 }

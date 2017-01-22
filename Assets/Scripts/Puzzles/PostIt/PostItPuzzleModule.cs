@@ -13,7 +13,6 @@ public class PostItPuzzleModule : PuzzleModule
 
     public GameObject PostItSprite;
     public GameObject PostItUISprite;
-    public GameObject BlackoutPanel;
 
     public List<GameObject> PuzzleConfigurationObjects;
 
@@ -149,20 +148,7 @@ public class PostItPuzzleModule : PuzzleModule
         LeanTween.scale(gameObject, new Vector3(scale, scale, 1.0f), tweenTime).setEaseInOutQuad();
         LeanTween.rotateLocal(gameObject, Vector3.zero, tweenTime).setEaseInOutQuad();
 
-        if (BlackoutPanel != null)
-        {
-            ShowBlackoutPanel(tweenTime);
-        }
-    }
-
-    private void ShowBlackoutPanel(float tweenTime)
-    {
-        var blackoutRenderer = BlackoutPanel.GetComponent<SpriteRenderer>();
-        var blackoutColor = blackoutRenderer.color;
-        blackoutColor.a = 0.0f;
-        blackoutRenderer.color = blackoutColor;
-        LeanTween.alpha(BlackoutPanel, 0.7f, tweenTime);
-        BlackoutPanel.SetActive(true);
+        GameState.GetGlobalGameState().EnableBlackout(tweenTime);
     }
 
     private void OnMouseUpAsButton()
@@ -185,16 +171,7 @@ public class PostItPuzzleModule : PuzzleModule
         LeanTween.scale(gameObject, new Vector3(0.8f, 0.8f, 1.0f), tweenTime).setEaseInOutCubic();
         LeanTween.alpha(gameObject, 0.0f, tweenTime)
             .setOnComplete(RemoveYourselfAndAlertGameSystem);
-        if (BlackoutPanel != null)
-        {
-            HideBlackoutPanel(tweenTime);
-        }
-    }
-
-    private void HideBlackoutPanel(float tweenTime)
-    {
-        LeanTween.alpha(BlackoutPanel, 0.0f, tweenTime)
-            .setOnComplete(() => BlackoutPanel.SetActive(false));
+        GameState.GetGlobalGameState().RemoveBlackout(tweenTime);
     }
 
     private void RemoveYourselfAndAlertGameSystem()

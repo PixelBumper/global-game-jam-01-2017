@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PostItUISprite : MonoBehaviour
 {
     private bool _isFullscreen = false;
+    private bool _mayInteract = true;
 
 	void Start () {
         gameObject.SetActive(false);
@@ -45,12 +46,20 @@ public class PostItUISprite : MonoBehaviour
 
     public void OnClicked()
     {
+        if (_mayInteract == false)
+        {
+            return;
+        }
+
         if (_isFullscreen)
         {
+            _mayInteract = false;
             InitiateTweenTo(_previousParentSizeDelta.x, _previousAnchor.y, 1.0f, 0.3f);
+            GameState.GetGlobalGameState().RemoveBlackout(0.3f);
         }
         else
         {
+            _mayInteract = false;
             var grandParentTransform = gameObject.transform.parent.parent.gameObject.GetComponent<RectTransform>();
             var parentTransform = gameObject.transform.parent.gameObject.GetComponent<RectTransform>();
             var myTransform = gameObject.GetComponent<RectTransform>();
@@ -63,6 +72,7 @@ public class PostItUISprite : MonoBehaviour
             var scaleFactor = Math.Min(xScale, yScale) * 0.6f; // scale to 60% of fullscreen
 
             InitiateTweenTo(grandParentTransform.sizeDelta.x, 0.0f, scaleFactor, 0.3f);
+            GameState.GetGlobalGameState().EnableBlackout(0.3f);
         }
 
         _isFullscreen = !_isFullscreen;
@@ -90,6 +100,7 @@ public class PostItUISprite : MonoBehaviour
                 rectTransform.anchoredPosition = new Vector2(oldAnchor.x, value);
             });
         LeanTween.scale(gameObject, new Vector3(newScale, newScale, 1.0f), tweenTime)
-            .setEaseInOutCubic();
+            .setEaseInOutCubic()
+            .setOnComplete(() => { _mayInteract = true; });
     }
 }

@@ -9,60 +9,44 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1918251366850602}
+  m_RootGameObject: {fileID: 1725710187773840}
   m_IsPrefabParent: 1
---- !u!1 &1918251366850602
+--- !u!1 &1725710187773840
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4287346688745582}
-  - component: {fileID: 212921289205256926}
-  - component: {fileID: 114916368838223902}
-  - component: {fileID: 61877894149883432}
-  - component: {fileID: 82469741782658326}
+  - component: {fileID: 4383641080631958}
+  - component: {fileID: 114989361100340266}
+  - component: {fileID: 82233038383706182}
   m_Layer: 0
-  m_Name: Bolt
-  m_TagString: Untagged
+  m_Name: GameState
+  m_TagString: GameState
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4287346688745582
+--- !u!4 &4383641080631958
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918251366850602}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.35, y: 0.06, z: -0.1}
+  m_GameObject: {fileID: 1725710187773840}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &61877894149883432
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918251366850602}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.8}
---- !u!82 &82469741782658326
+--- !u!82 &82233038383706182
 AudioSource:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918251366850602}
+  m_GameObject: {fileID: 1725710187773840}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
@@ -137,55 +121,40 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114916368838223902
+--- !u!114 &114989361100340266
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918251366850602}
+  m_GameObject: {fileID: 1725710187773840}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9074ad5a4a1b44d84b8245db2a709af1, type: 3}
+  m_Script: {fileID: 11500000, guid: ea2014d4c5090449cb5c93b3a9663e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ParentPanel: {fileID: 0}
-  MinScrewes: 1
-  MaxScrewes: 4
-  RequiredScrewes: 0
-  CurrentScrewes: 0
-  screwingSound: {fileID: 8300000, guid: cbf8d24dad5d34112aba15799fdebe77, type: 3}
---- !u!212 &212921289205256926
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918251366850602}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 0
-  m_ReflectionProbeUsage: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a5d10f9e33e1342468b5326c137e0578, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
+  StartingTimeInSeconds: 30
+  CurrentInventory: 
+  PlayerProgress: 
+  HeldInventoryItem: 2
+  InventoryHolder: {fileID: 0}
+  HamsterController: {fileID: 0}
+  MicrowaveFront: {fileID: 0}
+  MicrowaveBack: {fileID: 0}
+  KeyCursorTexture: {fileID: 2800000, guid: 96187439a7300417fa05adc7dd5ab50f, type: 3}
+  ScissorCursorTexture: {fileID: 2800000, guid: 0a4ef02fe7485405f975de7cc2d13198,
+    type: 3}
+  ScrewDriverCursorTexture: {fileID: 2800000, guid: d3eaa60ad54d14cf083346e3d035441e,
+    type: 3}
+  ObjectsToDisable:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  WinMessage: {fileID: 0}
+  LooseMessage: {fileID: 0}
+  KeyCursorHotspot: {x: 0.5, y: 0.5}
+  ScissorCursorHotspot: {x: 0.99, y: 0.5}
+  ScrewDriverCursorHotspot: {x: 0.9, y: 0.5}
+  BlackoutPanel: {fileID: 0}
+  backGroundMusic: {fileID: 8300000, guid: 234a3deb162904ad086392a558d7bb1c, type: 3}
+  successSound: {fileID: 8300000, guid: 4c488d7a4f28e42d3a8d011beba3b321, type: 3}
+  ExtraTime: {fileID: 1286887143136884, guid: c204d3f50cf9c40d494934015efea280, type: 2}

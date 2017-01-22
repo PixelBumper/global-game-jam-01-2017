@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 114801461688719338}
   m_Layer: 0
   m_Name: Keypad
-  m_TagString: Untagged
+  m_TagString: PuzzleModule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -332,7 +332,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1123130256644396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.7, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4940509850038960}
@@ -809,6 +809,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd58a033192674cefa2b88e7b7031c7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cSharp: {fileID: 8300000, guid: 5683e2daee2ed4b67bd6094ea72eb3d9, type: 3}
+  dSharp: {fileID: 8300000, guid: d4c4befd14fc644cd84c04fb17c2aa7a, type: 3}
+  fSharp: {fileID: 8300000, guid: 7227b116e31a746b0aa0222d402e4b64, type: 3}
+  gSharp: {fileID: 8300000, guid: af9647d3130c24712b03cb34777cb359, type: 3}
 --- !u!114 &114801461688719338
 MonoBehaviour:
   m_ObjectHideFlags: 1

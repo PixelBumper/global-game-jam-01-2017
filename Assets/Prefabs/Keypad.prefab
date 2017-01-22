@@ -821,6 +821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RiddleCode: 0
+  clickSound: {fileID: 8300000, guid: ef12d67ed28594486874f5d40a9132cd, type: 3}
 --- !u!114 &114809332291595918
 MonoBehaviour:
   m_ObjectHideFlags: 1

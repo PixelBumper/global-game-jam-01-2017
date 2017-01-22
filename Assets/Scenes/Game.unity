@@ -1638,69 +1638,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 430742871}
   m_Script: {fileID: 11500000, guid: 9074ad5a4a1b44d84b8245db2a709af1, type: 3}
---- !u!1 &445608220
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 445608222}
-  - component: {fileID: 445608221}
-  m_Layer: 0
-  m_Name: GameState
-  m_TagString: GameState
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &445608221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 445608220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea2014d4c5090449cb5c93b3a9663e4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StartingTimeInSeconds: 30
-  CurrentInventory: 
-  PlayerProgress: 
-  HeldInventoryItem: 2
-  InventoryHolder: {fileID: 1439843758}
-  HamsterController: {fileID: 175906362}
-  MicrowaveFront: {fileID: 1638816919}
-  MicrowaveBack: {fileID: 739809519}
-  KeyCursorTexture: {fileID: 2800000, guid: 96187439a7300417fa05adc7dd5ab50f, type: 3}
-  ScissorCursorTexture: {fileID: 2800000, guid: 0a4ef02fe7485405f975de7cc2d13198,
-    type: 3}
-  ScrewDriverCursorTexture: {fileID: 2800000, guid: d3eaa60ad54d14cf083346e3d035441e,
-    type: 3}
-  ObjectsToDisable:
-  - {fileID: 739809519}
-  - {fileID: 427490703}
-  - {fileID: 1439843754}
-  WinMessage: {fileID: 1247536201}
-  LooseMessage: {fileID: 1128653448}
-  KeyCursorHotspot: {x: 0.5, y: 0.5}
-  ScissorCursorHotspot: {x: 0.99, y: 0.5}
-  ScrewDriverCursorHotspot: {x: 0.9, y: 0.5}
-  ExtraTime: {fileID: 1286887143136884, guid: c204d3f50cf9c40d494934015efea280, type: 2}
---- !u!4 &445608222
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 445608220}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4, y: 2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451021793
 GameObject:
   m_ObjectHideFlags: 0
@@ -5241,6 +5178,93 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PostItSprite: {fileID: 21300000, guid: 0147827d055b3479f9a5fedfee6ecc09, type: 3}
   Keycode: 1176
+--- !u!1001 &1578715715
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383641080631958, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: InventoryHolder
+      value: 
+      objectReference: {fileID: 1439843758}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: HamsterController
+      value: 
+      objectReference: {fileID: 175906362}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: MicrowaveFront
+      value: 
+      objectReference: {fileID: 1638816919}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: MicrowaveBack
+      value: 
+      objectReference: {fileID: 739809519}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: ObjectsToDisable.Array.data[0]
+      value: 
+      objectReference: {fileID: 739809519}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: ObjectsToDisable.Array.data[1]
+      value: 
+      objectReference: {fileID: 427490703}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: ObjectsToDisable.Array.data[2]
+      value: 
+      objectReference: {fileID: 1439843754}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: WinMessage
+      value: 
+      objectReference: {fileID: 1247536201}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: LooseMessage
+      value: 
+      objectReference: {fileID: 1128653448}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1607240967
 GameObject:
   m_ObjectHideFlags: 0

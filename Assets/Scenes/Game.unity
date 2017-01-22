@@ -771,6 +771,12 @@ Prefab:
       propertyPath: PostItUISprite
       value: 
       objectReference: {fileID: 1495626927}
+    - target: {fileID: 212812837660476330, guid: b74a74c5be935415da801b693289ff9e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c96f7bc2e9ad74e70ba715fdfa34ec6b,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b74a74c5be935415da801b693289ff9e, type: 2}
   m_IsPrefabParent: 0
@@ -857,6 +863,12 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 212812837660476330, guid: b74a74c5be935415da801b693289ff9e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 0147827d055b3479f9a5fedfee6ecc09,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b74a74c5be935415da801b693289ff9e, type: 2}
   m_IsPrefabParent: 0
@@ -1332,6 +1344,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 739809520}
     m_Modifications:
+    - target: {fileID: 114978530060028266, guid: b74a74c5be935415da801b693289ff9e,
+        type: 2}
+      propertyPath: PuzzleConfigurationObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 4074618319161462, guid: b74a74c5be935415da801b693289ff9e, type: 2}
       propertyPath: m_LocalPosition.x
       value: -3.1954105
@@ -1392,6 +1409,30 @@ Prefab:
       propertyPath: ModuleToConfigure
       value: 
       objectReference: {fileID: 1967767630}
+    - target: {fileID: 114978530060028266, guid: b74a74c5be935415da801b693289ff9e,
+        type: 2}
+      propertyPath: PuzzleConfigurationObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 756129956}
+    - target: {fileID: 114978530060028266, guid: b74a74c5be935415da801b693289ff9e,
+        type: 2}
+      propertyPath: PuzzleConfigurationObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 845380289}
+    - target: {fileID: 212812837660476330, guid: b74a74c5be935415da801b693289ff9e,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d7c7b283d0b6a46db818ccb7bd92225c,
+        type: 3}
+    - target: {fileID: 4803434205504094, guid: b74a74c5be935415da801b693289ff9e, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4803434205504094, guid: b74a74c5be935415da801b693289ff9e, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b74a74c5be935415da801b693289ff9e, type: 2}
   m_IsPrefabParent: 0
@@ -2264,6 +2305,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &756129956
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 756129957}
+  - component: {fileID: 756129958}
+  m_Layer: 0
+  m_Name: WirePostItPuzzleConfig2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &756129957
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756129956}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452511691}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &756129958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 756129956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6227f5b1a4c4bbb8f8ad4d696d05c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostItSprite: {fileID: 21300000, guid: 131f28f11157b46a3a15aa39ec377876, type: 3}
+  wireConfiguration: 00000000030000000100000002000000
 --- !u!1 &763387608
 GameObject:
   m_ObjectHideFlags: 0
@@ -2612,6 +2695,48 @@ Transform:
   m_Father: {fileID: 1470969265}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &845380289
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 845380290}
+  - component: {fileID: 845380291}
+  m_Layer: 0
+  m_Name: WirePostItPuzzleConfig3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &845380290
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845380289}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.9999999, y: 0.9999999, z: 1}
+  m_Children: []
+  m_Father: {fileID: 452511691}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &845380291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 845380289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b6227f5b1a4c4bbb8f8ad4d696d05c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PostItSprite: {fileID: 21300000, guid: ce6ae9cc8128640cbaaed56a74e43e5e, type: 3}
+  wireConfiguration: 02000000030000000000000001000000
 --- !u!1 &852662637
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,8 +2903,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6227f5b1a4c4bbb8f8ad4d696d05c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PostItSprite: {fileID: 21300000, guid: 3d7e6fa5c9b1345da81af76072c3e085, type: 3}
-  wireConfiguration: 000000000200000001000000
+  PostItSprite: {fileID: 21300000, guid: d7c7b283d0b6a46db818ccb7bd92225c, type: 3}
+  wireConfiguration: 03000000010000000000000002000000
 --- !u!1001 &930994028
 Prefab:
   m_ObjectHideFlags: 0
@@ -4684,8 +4809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12867f2eb4aed4608a347a422bc8615c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PostItSprite: {fileID: 21300000, guid: 3d7e6fa5c9b1345da81af76072c3e085, type: 3}
-  Keycode: 1234
+  PostItSprite: {fileID: 21300000, guid: 0147827d055b3479f9a5fedfee6ecc09, type: 3}
+  Keycode: 1176
 --- !u!1 &1607240967
 GameObject:
   m_ObjectHideFlags: 0
@@ -4777,7 +4902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3db9a497ef9854214b9acdafd69e1d47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PostItSprite: {fileID: 21300000, guid: 3d7e6fa5c9b1345da81af76072c3e085, type: 3}
+  PostItSprite: {fileID: 21300000, guid: c96f7bc2e9ad74e70ba715fdfa34ec6b, type: 3}
 --- !u!4 &1608914353
 Transform:
   m_ObjectHideFlags: 0

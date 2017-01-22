@@ -15,6 +15,7 @@ public enum GameProgress
     SkirimLockerOpened,
     RemovedSimpleWiresPuzzlePanelBolts,
     RemovedSimpleWiresPuzzlePanel,
+    ResolvedScissorPuzzle,
     TakenSimpleWiresPostIt,
     ResolvedSimpleWiresPuzzle,
     ResolvedSimonSaysPuzzle,

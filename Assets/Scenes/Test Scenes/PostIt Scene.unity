@@ -329,10 +329,13 @@ MonoBehaviour:
   InventoryHolder: {fileID: 0}
   HamsterController: {fileID: 0}
   MicrowaveFront: {fileID: 0}
+  MicrowaveBack: {fileID: 0}
   KeyCursorTexture: {fileID: 0}
   ScissorCursorTexture: {fileID: 0}
   ScrewDriverCursorTexture: {fileID: 0}
   ObjectsToDisable: []
+  WinMessage: {fileID: 0}
+  LooseMessage: {fileID: 0}
 --- !u!4 &1199052652
 Transform:
   m_ObjectHideFlags: 0

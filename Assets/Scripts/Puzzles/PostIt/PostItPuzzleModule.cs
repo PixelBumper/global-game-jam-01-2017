@@ -139,7 +139,7 @@ public class PostItPuzzleModule : PuzzleModule
 
         var xScale = worldScreenWidth / sprite.bounds.size.x;
         var yScale = worldScreenHeight / sprite.bounds.size.y;
-        var scale = Math.Min(xScale, yScale) * 0.8f; // scale to 80% of fullscreen
+        var scale = Math.Min(xScale, yScale) * 0.6f; // scale to 60% of fullscreen
 
         LeanTween.scale(gameObject, new Vector3(scale, scale, 1.0f), tweenTime).setEaseInOutQuad();
     }

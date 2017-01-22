@@ -60,7 +60,7 @@ public class PostItUISprite : MonoBehaviour
 
             var xScale = grandParentTransform.rect.width / myTransform.rect.width;
             var yScale = grandParentTransform.rect.height / myTransform.rect.height;
-            var scaleFactor = Math.Min(xScale, yScale) * 0.8f; // scale to 80% of fullscreen
+            var scaleFactor = Math.Min(xScale, yScale) * 0.6f; // scale to 60% of fullscreen
 
             InitiateTweenTo(grandParentTransform.sizeDelta.x, 0.0f, scaleFactor, 0.3f);
         }

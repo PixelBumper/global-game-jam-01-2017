@@ -5262,11 +5262,6 @@ Prefab:
       propertyPath: LooseMessage
       value: 
       objectReference: {fileID: 1128653448}
-    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
-        type: 2}
-      propertyPath: successSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 4c488d7a4f28e42d3a8d011beba3b321, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
   m_IsPrefabParent: 0

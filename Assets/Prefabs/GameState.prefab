@@ -154,5 +154,7 @@ MonoBehaviour:
   KeyCursorHotspot: {x: 0.5, y: 0.5}
   ScissorCursorHotspot: {x: 0.99, y: 0.5}
   ScrewDriverCursorHotspot: {x: 0.9, y: 0.5}
-  successSound: {fileID: 0}
+  BlackoutPanel: {fileID: 0}
+  backGroundMusic: {fileID: 8300000, guid: 234a3deb162904ad086392a558d7bb1c, type: 3}
+  successSound: {fileID: 8300000, guid: 4c488d7a4f28e42d3a8d011beba3b321, type: 3}
   ExtraTime: {fileID: 1286887143136884, guid: c204d3f50cf9c40d494934015efea280, type: 2}

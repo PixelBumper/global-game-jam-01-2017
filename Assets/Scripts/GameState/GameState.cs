@@ -35,9 +35,13 @@ public class GameState : MonoBehaviour
 
     private float CurrentTimeInSeconds;
 
+    private AudioSource _source;
+
+
     // Use this for initialization
     void Start()
     {
+        _source = GetComponent<AudioSource>();
         if (!CurrentInventory.Contains(GameInventory.None))
         {
             CurrentInventory.Add(GameInventory.None);
@@ -49,6 +53,9 @@ public class GameState : MonoBehaviour
         }
 
         CurrentTimeInSeconds = StartingTimeInSeconds;
+        _source.clip = backGroundMusic;
+        _source.loop = true;
+        _source.Play();
     }
 
     void Update()

@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class InitialPuzzleKey : PuzzleModule
 {
-
     public GameObject key;
 
-    // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
         if (GameProgress.TakenInitialPostIt.Equals(progress))
@@ -21,16 +19,10 @@ public class InitialPuzzleKey : PuzzleModule
         get { return GameProgress.LightUpColorMixPanel; }
     }
 
-    private void Start()
-    {
-        MakeMeInteractable(); // TODO: Remove this when initial post it is done
-    }
-
     private void OnMouseUpAsButton()
     {
         key.SetActive(false);
-        var globalGameState = GameState.GetGlobalGameState();
-        globalGameState.PickInventoryItem(GameInventory.InitialKey);
+        GameState.GetGlobalGameState().PickInventoryItem(GameInventory.InitialKey);
         MarkAsSolved();
     }
 }

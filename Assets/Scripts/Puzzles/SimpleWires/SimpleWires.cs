@@ -60,7 +60,7 @@ public class SimpleWires : PuzzleModule
             if (wireSequence.Count == 0)
             {
                 MarkAsSolved();
-                AddTimeInSeconds(5);
+                AddTimeInSeconds(5, gameObject);
             }
         }
         else

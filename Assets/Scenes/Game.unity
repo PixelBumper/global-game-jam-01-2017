@@ -1590,6 +1590,7 @@ MonoBehaviour:
   - {fileID: 1439843754}
   WinMessage: {fileID: 1247536201}
   LooseMessage: {fileID: 1128653448}
+  ExtraTime: {fileID: 1286887143136884, guid: c204d3f50cf9c40d494934015efea280, type: 2}
 --- !u!4 &445608222
 Transform:
   m_ObjectHideFlags: 0

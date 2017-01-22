@@ -58,9 +58,9 @@ public abstract class PuzzleModule : MonoBehaviour
         return GameState.GetGlobalGameState().HeldInventoryItem == gameInventory;
     }
 
-    protected void AddTimeInSeconds(int seconds)
+    protected void AddTimeInSeconds(int seconds, GameObject o)
     {
-        GameState.AddTimeInSeconds(seconds);
+        GameState.GetGlobalGameState().AddTimeInSeconds(seconds, gameObject);
     }
 
     private void Awake()

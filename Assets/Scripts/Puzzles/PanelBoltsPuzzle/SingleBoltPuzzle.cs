@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class SingleBoltPuzzle : MonoBehaviour
 {
 
@@ -13,8 +14,13 @@ public class SingleBoltPuzzle : MonoBehaviour
     public int RequiredScrewes;
     public int CurrentScrewes;
 
+    public AudioClip screwingSound;
+
+    private AudioSource _audioSource;
+
     private void Start()
     {
+        _audioSource = GetComponent<AudioSource>();
         RequiredScrewes = Random.Range(MinScrewes, MaxScrewes);
     }
 
@@ -26,6 +32,7 @@ public class SingleBoltPuzzle : MonoBehaviour
             CurrentScrewes++;
             LeanTween.rotateZ(gameObject, gameObject.transform.rotation.z * Mathf.Rad2Deg + 90, 0.5f)
             .setOnComplete(EnableScrewesAgain);
+            _audioSource.PlayOneShot(screwingSound);
         }
     }
 

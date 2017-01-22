@@ -9,6 +9,8 @@ public class PasswordPuzzle : PuzzleModule
 {
     public int RiddleCode;
 
+    public AudioClip clickSound;
+
     private String _digitsToType;
 
     private float _blinkInterval = 0.25f;
@@ -20,6 +22,8 @@ public class PasswordPuzzle : PuzzleModule
     private float _timePassed = 0.0f;
 
     private bool _glowing = true;
+
+    private AudioSource _source;
 
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
@@ -41,6 +45,7 @@ public class PasswordPuzzle : PuzzleModule
     {
         if (_isSolved == false)
         {
+            _source.PlayOneShot(clickSound);
             int result;
 
             if (int.TryParse(key, out result) == false || key[0] != _digitsToType[0])
@@ -67,6 +72,7 @@ public class PasswordPuzzle : PuzzleModule
 
     void Start()
     {
+        _source = GetComponent<AudioSource>();
         DisableKeypad();
     }
 
@@ -94,7 +100,6 @@ public class PasswordPuzzle : PuzzleModule
             _timePassed += Time.deltaTime;
             if (_timePassed > _blinkInterval)
             {
-
                 if (_glowing)
                 {
                     _glowing = false;
@@ -124,6 +129,5 @@ public class PasswordPuzzle : PuzzleModule
                 }
             }
         }
-
     }
 }

@@ -35,6 +35,7 @@ public class InitialPuzzleLock : PuzzleModule
                 chain.SetActive(false);
             }
 
+            AddTimeInSeconds(60, gameObject);
             lockToBeOpened.SetActive(false);
             globalGameState.DropInventoryItem(GameInventory.InitialKey);
             globalGameState.HeldInventoryItem = GameInventory.None;

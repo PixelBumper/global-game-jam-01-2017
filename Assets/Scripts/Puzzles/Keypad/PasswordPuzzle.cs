@@ -126,6 +126,7 @@ public class PasswordPuzzle : PuzzleModule
                         child.GetComponent<Key>().AllowUsage();
                     }
                     MarkAsSolved();
+                    AddTimeInSeconds(30, gameObject);
                 }
             }
         }

@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea2014d4c5090449cb5c93b3a9663e4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartingTimeInSeconds: 150
+  StartingTimeInSeconds: 30
   CurrentInventory: 
   PlayerProgress: 
   HeldInventoryItem: 2
@@ -1687,6 +1687,7 @@ MonoBehaviour:
   KeyCursorHotspot: {x: 0.5, y: 0.5}
   ScissorCursorHotspot: {x: 0.99, y: 0.5}
   ScrewDriverCursorHotspot: {x: 0.9, y: 0.5}
+  ExtraTime: {fileID: 1286887143136884, guid: c204d3f50cf9c40d494934015efea280, type: 2}
 --- !u!4 &445608222
 Transform:
   m_ObjectHideFlags: 0

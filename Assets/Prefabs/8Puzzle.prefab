@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4607535615595286}
   m_Layer: 0
   m_Name: 8Puzzle
-  m_TagString: Untagged
+  m_TagString: PuzzleModule
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -298,8 +298,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1632732282590132}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.34, y: 1.59, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4345225615909704}
@@ -504,6 +504,7 @@ MonoBehaviour:
   tile6: {fileID: 1845110879577432}
   tile7: {fileID: 1936656519061844}
   tile8: {fileID: 1161017637616384}
+  NUM_RANDOM_TILE_MOVEMENTS: 1
 --- !u!114 &114187333248365086
 MonoBehaviour:
   m_ObjectHideFlags: 1

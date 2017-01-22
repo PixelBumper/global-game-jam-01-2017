@@ -22,7 +22,7 @@ public class SimpleWires : PuzzleModule
     // Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
-        if (GameProgress.RemovedSimpleWiresPuzzlePanel.Equals(progress))
+        if (GameProgress.ResolvedScissorPuzzle.Equals(progress))
         {
             CanIReceiveInput = true;
         }

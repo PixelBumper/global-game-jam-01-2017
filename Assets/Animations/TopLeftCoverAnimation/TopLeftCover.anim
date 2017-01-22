@@ -5,7 +5,7 @@ AnimationClip:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: BigBackPanelHighlight
+  m_Name: TopLeftCover
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,9 +19,9 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: aa2fb7904d9ad403fac5826e732664a7, type: 3}
+      value: {fileID: 21300000, guid: 8d4f1866a827b4268b0e80abfa2de929, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 5d54d2fe1a1144672aa1a16a02382050, type: 3}
+      value: {fileID: 21300000, guid: b59ba81ebf5d844eabf8608395348496, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -40,8 +40,8 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: aa2fb7904d9ad403fac5826e732664a7, type: 3}
-    - {fileID: 21300000, guid: 5d54d2fe1a1144672aa1a16a02382050, type: 3}
+    - {fileID: 21300000, guid: 8d4f1866a827b4268b0e80abfa2de929, type: 3}
+    - {fileID: 21300000, guid: b59ba81ebf5d844eabf8608395348496, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}

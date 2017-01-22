@@ -7,7 +7,7 @@ public class ScissorPickUp : PuzzleModule
 
     public override void OnPlayerProgress(GameProgress progress)
     {
-        if (GameProgress.RemovedSimpleWiresPuzzlePanel.Equals(progress))
+        if (GameProgress.ResolvedSlidingPuzzle.Equals(progress))
         {
             MakeMeInteractable();
             LeanTween.alpha(LockingPanel, 0f, 0.5f)

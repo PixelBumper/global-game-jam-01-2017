@@ -22,3 +22,6 @@ Use your mouse!
 
  ## Requirements
 Uses Unity 5.5.0f3
+
+# Binaries for Download
+ - [OSX](builds/HamsterWaveMac.zip)

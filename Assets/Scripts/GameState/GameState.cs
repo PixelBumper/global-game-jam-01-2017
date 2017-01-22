@@ -111,6 +111,7 @@ public class GameState : MonoBehaviour
         WinMessage.SetActive(true);
         LeanTween.alpha(WinMessage, 1, 1);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        HamsterController.gameObject.SetActive(false);
     }
 
     private void EndGameLost()

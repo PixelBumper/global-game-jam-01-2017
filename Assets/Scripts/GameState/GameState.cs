@@ -20,6 +20,9 @@ public class GameState : MonoBehaviour
     public List<GameObject> ObjectsToDisable;
     public GameObject WinMessage;
     public GameObject LooseMessage;
+    public Vector2 KeyCursorHotspot;
+    public Vector2 ScissorCursorHotspot;
+    public Vector2 ScrewDriverCursorHotspot;
 
     private float CurrentTimeInSeconds;
 

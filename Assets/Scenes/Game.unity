@@ -1590,6 +1590,9 @@ MonoBehaviour:
   - {fileID: 1439843754}
   WinMessage: {fileID: 1247536201}
   LooseMessage: {fileID: 1128653448}
+  KeyCursorHotspot: {x: 0.5, y: 0.5}
+  ScissorCursorHotspot: {x: 0.99, y: 0.5}
+  ScrewDriverCursorHotspot: {x: 0.9, y: 0.5}
 --- !u!4 &445608222
 Transform:
   m_ObjectHideFlags: 0

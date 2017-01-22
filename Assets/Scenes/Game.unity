@@ -786,10 +786,10 @@ MonoBehaviour:
   HamsterController: {fileID: 175906362}
   MicrowaveFront: {fileID: 1638816919}
   MicrowaveBack: {fileID: 739809519}
-  KeyCursorTexture: {fileID: 2800000, guid: d146fe3eddcae4643b27f7e431f6b3c1, type: 3}
+  KeyCursorTexture: {fileID: 2800000, guid: 96187439a7300417fa05adc7dd5ab50f, type: 3}
   ScissorCursorTexture: {fileID: 2800000, guid: 2a9db1d8eabc84768bc0dbc827b60abd,
     type: 3}
-  ScrewDriverCursorTexture: {fileID: 2800000, guid: d630ba1d48b1148d6aa2839324924277,
+  ScrewDriverCursorTexture: {fileID: 2800000, guid: d3eaa60ad54d14cf083346e3d035441e,
     type: 3}
   ObjectsToDisable:
   - {fileID: 739809519}
@@ -1666,7 +1666,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b5faef195e7334b3ba44e7ff61ba58c2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 51a32b60a1dea465e9b53267f3eabc3f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -112,8 +112,7 @@ public class GameState : MonoBehaviour
 
         foreach (var puzzleModule in GameObject.FindGameObjectsWithTag("PuzzleModule"))
         {
-            var puzzleModuleBehaviour = puzzleModule.GetComponent<PuzzleModule>();
-            if (puzzleModuleBehaviour != null)
+            foreach (var puzzleModuleBehaviour in puzzleModule.GetComponents<PuzzleModule>())
             {
                 puzzleModuleBehaviour.OnPlayerProgress(progress);
             }

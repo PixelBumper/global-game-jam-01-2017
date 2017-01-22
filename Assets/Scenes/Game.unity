@@ -5262,6 +5262,11 @@ Prefab:
       propertyPath: LooseMessage
       value: 
       objectReference: {fileID: 1128653448}
+    - target: {fileID: 114989361100340266, guid: b7ac775d9970d4079aa6c30cb2b2f062,
+        type: 2}
+      propertyPath: BlackoutPanel
+      value: 
+      objectReference: {fileID: 186447715}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7ac775d9970d4079aa6c30cb2b2f062, type: 2}
   m_IsPrefabParent: 0

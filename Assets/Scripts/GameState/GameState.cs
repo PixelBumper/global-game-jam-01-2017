@@ -91,6 +91,8 @@ public class GameState : MonoBehaviour
             }
             MicrowaveFront.SetActive(true);
             HamsterController.Explode();
+            CurrentTimeInSeconds = 0;
+            // TODO: play sound
         }
         else
         {

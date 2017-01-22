@@ -98,11 +98,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114978530060028266, guid: b74a74c5be935415da801b693289ff9e,
-        type: 2}
-      propertyPath: PuzzleConfigurationObjects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4074618319161462, guid: b74a74c5be935415da801b693289ff9e, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0

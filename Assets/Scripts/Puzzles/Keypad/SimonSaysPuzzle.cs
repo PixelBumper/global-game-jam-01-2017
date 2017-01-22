@@ -130,6 +130,7 @@ public class SimonSaysPuzzle : PuzzleModule
                         child.GetComponent<Key>().SetPressedState();
                     }
                     MarkAsSolved();
+                    AddTimeInSeconds(5, gameObject);
                 }
             }
         }

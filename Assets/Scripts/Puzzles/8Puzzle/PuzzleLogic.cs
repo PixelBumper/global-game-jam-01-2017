@@ -168,5 +168,6 @@ public class PuzzleLogic : PuzzleModule {
 		}
 		inputEnabled = false;
 		MarkAsSolved ();
+	    AddTimeInSeconds(10, gameObject);
 	}
 }

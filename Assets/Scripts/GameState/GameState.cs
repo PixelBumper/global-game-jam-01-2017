@@ -24,6 +24,9 @@ public class GameState : MonoBehaviour
     public Vector2 ScissorCursorHotspot;
     public Vector2 ScrewDriverCursorHotspot;
 
+    public AudioClip successSound;
+
+
     public GameObject ExtraTime;
 
     private float CurrentTimeInSeconds;

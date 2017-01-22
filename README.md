@@ -7,7 +7,9 @@ And [Global Game Jam 2017](http://globalgamejam.org/2017/games/hamster-waves)
 Your older sister takes revenge on you putting your lovely hamster in the microwave. Save him before it's too late!
 
 ![game1](Images/screenshot.png "Hamster trapped!")
-[YouTube link](https://youtu.be/oJaNmie_P-o)
+
+# Video
+Watch some gameplay on [YouTube](https://youtu.be/oJaNmie_P-o)
 
 ## Controls
 Use your mouse!
@@ -26,3 +28,4 @@ Uses Unity 5.5.0f3
 
 # Binaries for Download
  - [OSX](builds/HamsterWaveMac.zip)
+ - [WebGL](https://pixelbumper.itch.io/hamster-wave)

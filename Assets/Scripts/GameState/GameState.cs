@@ -18,6 +18,8 @@ public class GameState : MonoBehaviour
     public Texture2D ScissorCursorTexture;
     public Texture2D ScrewDriverCursorTexture;
     public List<GameObject> ObjectsToDisable;
+    public GameObject WinMessage;
+    public GameObject LooseMessage;
 
     private float CurrentTimeInSeconds;
 
@@ -95,6 +97,22 @@ public class GameState : MonoBehaviour
             HamsterController.Explode();
             CurrentTimeInSeconds = 0;
             // TODO: play sound
+
+            LeanTween.delayedCall(3.5f, () =>
+            {
+                LooseMessage.SetActive(true);
+                LeanTween.alpha(LooseMessage, 1, 1);
+            });
+        }
+        else if (GameProgress.HamsterRescued.Equals(progress))
+        {
+            CurrentTimeInSeconds = 999;
+            foreach (var objectToDisable in ObjectsToDisable)
+            {
+                objectToDisable.SetActive(false);
+            }
+            WinMessage.SetActive(true);
+            LeanTween.alpha(WinMessage, 1, 1);
         }
         else
         {

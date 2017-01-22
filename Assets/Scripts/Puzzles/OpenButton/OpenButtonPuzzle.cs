@@ -14,7 +14,7 @@ public class OpenButtonPuzzle : PuzzleModule
 	// Use this for initialization
     public override void OnPlayerProgress(GameProgress progress)
     {
-        if (GameProgress.ResolvedLeversPuzzle.Equals(progress))
+        if (GameProgress.ResolvedSimonSaysPuzzle.Equals(progress))
         {
             CanBeOpened = true;
             foreach (var openAsset in OpenAssets)
@@ -33,7 +33,7 @@ public class OpenButtonPuzzle : PuzzleModule
     {
         get
         {
-            return GameProgress.ResolvedDoorOpen;
+            return GameProgress.HamsterRescued;
         }
     }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class HamsterController : MonoBehaviour
 {
 
@@ -9,15 +10,19 @@ public class HamsterController : MonoBehaviour
     private const string Blink = "Blink";
     private const string DieTrigger = "Die";
 
+    public AudioClip explosion;
     public float AnimationSecondsCooldownLower = 5f;
     public float AnimationSecondsCooldownHigher = 10f;
     public Animator Animator;
     private float timePassed;
     private float currentCooldown = 6f;
 
+    private AudioSource _Source;
+
 	// Use this for initialization
-	void Start () {
-		
+	void Start ()
+	{
+	    _Source = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +40,11 @@ public class HamsterController : MonoBehaviour
     public void Explode()
     {
         Animator.SetTrigger(DieTrigger);
+    }
+
+    public void PlayExplosionSound()
+    {
+        _Source.PlayOneShot(explosion);
     }
 
 }

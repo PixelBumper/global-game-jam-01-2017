@@ -48,6 +48,7 @@ public class PostItUISprite : MonoBehaviour
         if (_isFullscreen)
         {
             InitiateTweenTo(_previousParentSizeDelta.x, _previousAnchor.y, 1.0f, 0.3f);
+            GameState.GetGlobalGameState().RemoveBlackout(0.3f);
         }
         else
         {
@@ -63,6 +64,7 @@ public class PostItUISprite : MonoBehaviour
             var scaleFactor = Math.Min(xScale, yScale) * 0.6f; // scale to 60% of fullscreen
 
             InitiateTweenTo(grandParentTransform.sizeDelta.x, 0.0f, scaleFactor, 0.3f);
+            GameState.GetGlobalGameState().EnableBlackout(0.3f);
         }
 
         _isFullscreen = !_isFullscreen;

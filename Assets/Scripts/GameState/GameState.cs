@@ -23,6 +23,7 @@ public class GameState : MonoBehaviour
     public Vector2 KeyCursorHotspot;
     public Vector2 ScissorCursorHotspot;
     public Vector2 ScrewDriverCursorHotspot;
+    public GameObject BlackoutPanel;
 
     public AudioClip successSound;
 
@@ -131,6 +132,7 @@ public class GameState : MonoBehaviour
         LeanTween.alpha(WinMessage, 1, 1);
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         HamsterController.gameObject.SetActive(false);
+        EnableBlackout(0.3f);
     }
 
     private void EndGameLost()
@@ -150,6 +152,7 @@ public class GameState : MonoBehaviour
         {
             LooseMessage.SetActive(true);
             LeanTween.alpha(LooseMessage, 1, 1);
+            EnableBlackout(0.3f);
         });
     }
 
@@ -194,5 +197,28 @@ public class GameState : MonoBehaviour
     public bool IsProgressCompleted(GameProgress progress)
     {
         return PlayerProgress.Contains(progress);
+    }
+
+    public void RemoveBlackout(float tweenTime)
+    {
+        if (BlackoutPanel != null)
+        {
+            LeanTween.alpha(BlackoutPanel, 0.0f, tweenTime)
+                .setOnComplete(() => BlackoutPanel.SetActive(false));
+        }
+    }
+
+    public void EnableBlackout(float tweenTime)
+    {
+        if (BlackoutPanel != null)
+        {
+            var blackoutRenderer = BlackoutPanel.GetComponent<SpriteRenderer>();
+            var blackoutColor = blackoutRenderer.color;
+            blackoutColor.a = 0.0f;
+            blackoutRenderer.color = blackoutColor;
+            LeanTween.alpha(BlackoutPanel, 0.7f, tweenTime);
+            BlackoutPanel.SetActive(true);
+        }
+
     }
 }

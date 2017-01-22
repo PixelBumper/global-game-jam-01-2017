@@ -67,7 +67,7 @@ public class SimonSaysPuzzle : PuzzleModule
         if (progress == GameProgress.ResolvedSimpleWiresPuzzle)
         {
             _sequence = new List<int>();
-            for (int i = 0; i <= 1; i++)
+            for (int i = 0; i <= 9; i++)
             {
                 _sequence.Add(i);
             }

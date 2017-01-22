@@ -8,8 +8,8 @@ public class SingleBoltPuzzle : MonoBehaviour
     public PanelBoltsPuzzle ParentPanel;
 
     private bool canUnScrewe = true;
-    public int MinScrewes = 2;
-    public int MaxScrewes = 7;
+    public int MinScrewes = 1;
+    public int MaxScrewes = 4;
     public int RequiredScrewes;
     public int CurrentScrewes;
 

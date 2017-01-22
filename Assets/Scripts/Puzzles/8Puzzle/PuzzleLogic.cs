@@ -113,45 +113,24 @@ public class PuzzleLogic : PuzzleModule {
 
 	public override void OnPlayerProgress(GameProgress progress)
 	{
-		// do nothing
+	    inputEnabled = GameProgress.RemovedSlidingPuzzlePanel.Equals(progress);
 	}
 
     public override GameProgress OwnGameProgressName
     {
-        get { return GameProgress.LightUpColorMixPanel; }
+        get { return GameProgress.ResolvedSlidingPuzzle; }
     }
-
-    private void Awake()
-	{
-	}
 
 	private float _test = 0.0f;
 	private float _delta = 0.01f;
-	private void Update()
-	{
-	}
-
-	private void FixedUpdate()
-	{
-	}
-
-	private void OnMouseUpAsButton()
-	{
-		Debug.Log("PuzzleLogic OnMouseUpAsButton");
-	}
 
 	public void OnTileClicked(GameObject tile) {
 		if (inputEnabled) {
 			int indexOfTile = Array.IndexOf (board, tile);
 			int indexOfFreeTile = GetIndexOfFreeAdjacentTile (indexOfTile);
 			if (indexOfFreeTile >= 0) {
-				Debug.Log ("Free tile available from index " + indexOfTile + ": " + indexOfFreeTile);
 				swapTiles (indexOfTile, indexOfFreeTile);
-			} else {
-				Debug.Log ("No free tile available from index " + indexOfTile);
-			}			
-		} else {
-			Debug.Log ("Input disabled");
+			}
 		}
 	}
 
@@ -183,7 +162,6 @@ public class PuzzleLogic : PuzzleModule {
 				return;
 			}
 		}
-		Debug.Log("8Puzzle has been solved! Great Success!");
 		inputEnabled = false;
 		MarkAsSolved ();
 	}

@@ -68,8 +68,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentPanel: {fileID: 0}
-  MinScrewes: 2
-  MaxScrewes: 7
+  MinScrewes: 1
+  MaxScrewes: 4
   RequiredScrewes: 0
   CurrentScrewes: 0
 --- !u!212 &212921289205256926
@@ -103,7 +103,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c960d33b4c4fd48e99fe8373cb629523, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5d10f9e33e1342468b5326c137e0578, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
